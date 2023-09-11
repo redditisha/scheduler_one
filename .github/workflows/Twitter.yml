@@ -31,7 +31,7 @@ jobs:
       - name: Download Python Script
         run: |
           curl -o my_script.py https://raw.githubusercontent.com/redditisha/scheduler_one/main/twitter_script.py
-          curl -v -o my_selenium_data1 https://raw.githubusercontent.com/redditisha/scheduler_one/master/Code files/Selenium Stuff/my_selenium_data1
+          curl -v -o my_selenium_data1 https://raw.githubusercontent.com/redditisha/scheduler_one/main/Code files/Selenium Stuff/my_selenium_data1
           
           pkill -f "chrome --user-data-dir"
       - name: Run Your Python Script
