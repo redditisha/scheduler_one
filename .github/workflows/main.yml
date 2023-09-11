@@ -28,7 +28,7 @@ jobs:
 
       - name: Download Python Script
         run: |
-          curl -o my_script.py https://raw.githubusercontent.com/redditisha/scheduler/main/test_math.py
+          curl -o my_script.py https://raw.githubusercontent.com/redditisha/scheduler_one/main/test_math.py
 
       - name: Run Your Python Script
         run: python my_script.py
