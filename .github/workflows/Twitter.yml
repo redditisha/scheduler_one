@@ -1,0 +1,37 @@
+name: Twitter
+
+on:
+  schedule:
+    - cron: "0/5 * * * *" # Runs at 5:00 PM UTC on Monday through Thursday
+
+jobs:
+  run_code:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x # Specify your desired Python version
+
+      - name: Install Dependencies
+        run: |
+          pip install selenium
+          pip install wait
+          pip install pandas
+
+      - name: Install Google Chrome
+        run: |
+          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo dpkg -i google-chrome-stable_current_amd64.deb   
+
+      - name: Download Python Script
+        run: |
+          curl -o my_script.py https://raw.githubusercontent.com/redditisha/scheduler/main/twitter_script.py
+          curl -v -o my_selenium_data1 https://raw.githubusercontent.com/redditisha/scheduler/master/my_selenium_data1
+          pkill -f "chrome --user-data-dir"
+      - name: Run Your Python Script
+        run: python my_script.py
