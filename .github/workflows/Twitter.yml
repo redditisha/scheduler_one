@@ -32,7 +32,7 @@ jobs:
         run: |
           curl -o my_script.py https://raw.githubusercontent.com/redditisha/scheduler_one/main/twitter_script.py
           curl -LOk https://github.com/redditisha/scheduler_one/archive/refs/heads/main.zip
-          unzip -j main.zip 'scheduler_one-main/Code%20files/Selenium%20Stuff/my_selenium_data1/*'
+          unzip -j main.zip 'scheduler_one-main/Code%20files/Selenium%20Stuff/*'
           rm main.zip
 
           
