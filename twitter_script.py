@@ -90,5 +90,5 @@ try:
     # Close the browser
     driver.quit()
 except Exception as error:
-    print("An error occurred:", error
+    print("An error occurred:", error)
     driver.quit()
