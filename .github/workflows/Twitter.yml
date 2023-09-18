@@ -36,6 +36,5 @@ jobs:
           unzip -jo main.zip 'scheduler_one-main/Code files/Selenium Stuff/my_selenium_data1/*'
           rm main.zip
           echo "Done"
-          pkill "chrome"
       - name: Run Your Python Script
         run: python my_script.py
