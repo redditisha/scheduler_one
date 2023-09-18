@@ -36,8 +36,8 @@ jobs:
           unzip -jo main.zip 'scheduler_one-main/Code files/Selenium Stuff/my_selenium_data1/*'
           rm main.zip
           echo "Done"
-          #curl -L -o chromedriver.zip https://github.com/redditisha/scheduler_one/raw/main/chromedriver.exe
-          #unzip chromedriver.zip
+          curl -L -o chromedriver.zip https://github.com/redditisha/scheduler_one/raw/main/chromedriver.exe
+          unzip chromedriver.zip
           echo "Done"
       - name: Run Your Python Script
         run: python my_script.py
