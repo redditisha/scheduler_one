@@ -29,7 +29,7 @@ chrome_options.add_argument(f"user-data-dir={user_data_dir}")
 chrome_options.add_argument("--headless")
 chrome_options.add_argument(" --window-size=1920x1080")
 chrome_options.add_argument(" --ignore-certificate-errors")
-service = Service(os.getcwd() +"/chromedriver")
+#service = Service(os.getcwd() +"/chromedriver")
 #service = Service(chrome_drive)
 #driver = webdriver.Chrome(options=chrome_options, service=service)
 # Create WebDriver instance with options
