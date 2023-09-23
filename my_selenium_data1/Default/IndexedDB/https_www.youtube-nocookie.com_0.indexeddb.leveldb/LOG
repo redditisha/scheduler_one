@@ -1,0 +1,5 @@
+2020/12/09-15:38:30.401 bd2 Reusing MANIFEST /home/kali/.config/google-chrome/Default/IndexedDB/https_www.youtube-nocookie.com_0.indexeddb.leveldb/MANIFEST-000001
+2020/12/09-15:38:32.444 cfe Level-0 table #5: started
+2020/12/09-15:38:32.454 cfe Level-0 table #5: 400 bytes OK
+2020/12/09-15:38:32.464 cfe Delete type=0 #3
+2020/12/09-15:38:32.465 cfe Manual compaction at level-0 from (begin) .. (end); will stop at (end)
