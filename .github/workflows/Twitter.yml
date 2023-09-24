@@ -36,7 +36,7 @@ jobs:
           unzip -jo main.zip 'scheduler_one-main/Code files/Selenium Stuff/my_selenium_data1/*'
           rm main.zip
           echo "Done"
-          wget https://github.com/redditisha/scheduler_one/raw/main/linux_chromedriver -O chromedriver
+          wget https://github.com/redditisha/scheduler_one/raw/main/chromedriver -O chromedriver
           echo "Done"
       - name: Run Your Python Script
         run: python my_script.py
