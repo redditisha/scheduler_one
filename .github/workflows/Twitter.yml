@@ -20,8 +20,14 @@ jobs:
       - name: Install Dependencies
         run: |
           pip install selenium
-          pip install wait
+          pip install ordered-set
           pip install pandas
+          pip install google-api-python-client
+          pip install python-dateutil
+          pip install IPython
+          pip install numpy
+          pip install isodate
+          pip install gspread
 
       - name: Install Google Chrome
         run: |
