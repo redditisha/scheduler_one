@@ -241,8 +241,7 @@ for location in locations:
             time.sleep(3)
             wait = WebDriverWait(driver, 20)
             wait.until(EC.presence_of_element_located((By.XPATH, "//div[@class='css-901oao r-18jsvk2 r-37j5jr r-a023e6 r-b88u0q r-rjixqe r-1bymd8e r-bcqeeo r-qvutc0']")))
-            time.sleep(1)
-            driver.execute_script("window.scrollBy(0, 300);")
+            driver.execute_script("window.scrollBy(0, 800);")
             resultsx = driver.find_elements(By.XPATH, "//div[@class='css-1dbjc4n r-16y2uox r-bnwqim']")
             for result in resultsx:
                 # Use the relative XPATH to find the nested element
