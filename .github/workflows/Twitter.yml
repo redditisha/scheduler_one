@@ -28,6 +28,7 @@ jobs:
           pip install numpy
           pip install isodate
           pip install gspread
+          pip install wait
 
       - name: Install Google Chrome
         run: |
