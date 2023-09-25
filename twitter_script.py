@@ -98,20 +98,27 @@ def worksheet_update(Channel_Details,sheet_id,worksheet_num,Top_left):
             temp.append(Column_Values)
         Item.append(temp)
     worksheet.update(str(Top_Left_Index+':'+Bottom_Right_Index), Item)
-def next_letter(letter,steps):
-    ascii_value = ord(letter)
-    new_ascii_value = ascii_value + (int(steps)-1)
-    
-    if letter.islower():
-        if new_ascii_value > ord('z'):
-            new_ascii_value -= 26
-    else:
-        if new_ascii_value > ord('Z'):
-            new_ascii_value -= 26
-            
-    new_letter = chr(new_ascii_value)
-    return new_letter
+def next_letter(column_name, steps):
+    result = []
+    carry = 0
 
+    for char in reversed(column_name):
+        if steps == 0 and carry == 0:
+            result.append(char)
+        else:
+            ascii_value = ord(char) - ord('A') + carry
+            if steps > 0:
+                ascii_value += steps
+                steps = 0
+            carry = ascii_value // 26
+            new_char = chr(ascii_value % 26 + ord('A'))
+            result.append(new_char)
+
+    if carry > 0:
+        result.append(chr(carry - 1 + ord('A')))
+
+    return ''.join(reversed(result))
+    
 # Set the path to a new directory for user data
 user_data_dir = os.path.join(os.getcwd(), 'my_selenium_data1')
 
@@ -132,72 +139,200 @@ driver = webdriver.Chrome(options=chrome_options, service=service)
 # Create WebDriver instance with options
 #driver = webdriver.Chrome(executable_path="linux_chromedriver",options=chrome_options)
 print("cheomr driver loaded")
-locations=['India','US']
+locations=['India','US','UK','Russia','France','Brazil','Portugal', 'Spain', 'Italy','Germany']#Russia, Brazil, Portugal, Spain, Italy, UK, Saudi Arabia 
 #location='US'
 empty_row(2, 32, 0, '19Feu-nZlE2R5Boe2mdelYoSj5eAAQWHR84LdtoEBWZk')
+flag=False
 for location in locations:
-    driver.get('https://twitter.com/settings/explore/location')
-    wait = WebDriverWait(driver, 20)
-    wait.until(EC.presence_of_element_located((By.XPATH, "//span[normalize-space()='Locations']")))
-    resultab=[]
-    element = driver.find_element(By.XPATH, "//span[normalize-space()='Locations']")
-    time.sleep(2)
-    # create action chain object
-    action = ActionChains(driver)
-    scroll_origin = ScrollOrigin.from_element(element)
-    action.scroll_from_origin(scroll_origin, 0, 20000).perform()
-    time.sleep(5)
-    action.scroll_from_origin(scroll_origin, 0, 20000).perform()
-    time.sleep(2)
-    action.scroll_from_origin(scroll_origin, 0, 20000).perform()
-    time.sleep(2)
-    action.scroll_from_origin(scroll_origin, 0, -20000).perform()
-    time.sleep(2)
-    action.scroll_from_origin(scroll_origin, 0, 4900).perform()
-    time.sleep(2)
-    action.scroll_from_origin(scroll_origin, 0, -20000).perform()
-    time.sleep(2)
-    if location=='India':
-        action.scroll_from_origin(scroll_origin, 0, 4400).perform()
-        wait.until(EC.presence_of_element_located((By.XPATH, "//span[normalize-space()='India']")))
-        elementin=driver.find_element(By.XPATH, "//span[normalize-space()='India']")
-        action.move_to_element(elementin).click().perform()
-    elif location=='US':
-        action.scroll_from_origin(scroll_origin, 0, 9900).perform()
-        wait.until(EC.presence_of_element_located((By.XPATH, "//span[normalize-space()='United States']")))
-        elementin=driver.find_element(By.XPATH, "//span[normalize-space()='United States']")
-        action.move_to_element(elementin).click().perform()
-    time.sleep(5)
-    driver.get("https://twitter.com/explore/tabs/trending")
-    wait = WebDriverWait(driver, 20)
-    wait.until(EC.presence_of_element_located((By.XPATH, "//div[@class='css-901oao r-18jsvk2 r-37j5jr r-a023e6 r-b88u0q r-rjixqe r-1bymd8e r-bcqeeo r-qvutc0']")))
-    time.sleep(1)
-    driver.execute_script("window.scrollBy(0, 300);")
-    resultsx = driver.find_elements(By.XPATH, "//div[@class='css-1dbjc4n r-16y2uox r-bnwqim']")
-    for result in resultsx:
-        # Use the relative XPATH to find the nested element
-        nested_element = result.find_element(By.XPATH, ".//div[@class='css-901oao r-18jsvk2 r-37j5jr r-a023e6 r-b88u0q r-rjixqe r-1bymd8e r-bcqeeo r-qvutc0']")
-        #print(nested_element.text)
+    while True:
         try:
-            nested_element2 = result.find_element(By.XPATH, ".//div[@class='css-901oao r-14j79pv r-37j5jr r-n6v787 r-16dba41 r-1cwl3u0 r-14gqq1x r-bcqeeo r-qvutc0']")
-            #print(nested_element2.text)
-            temp={"Tag":str(nested_element.text), "Count":str(nested_element2.text)}
-        except NoSuchElementException:
-            temp={"Tag":str(nested_element.text), "Count":'No Count'}
-        print(temp)
-        resultab.append(temp)
-    if location=='India':
-        time_ = [{'date':str(datetime.now().time())}]
-        date_ = [{'date':str(str(date.today()))}]
-        worksheet_update(time_,'19Feu-nZlE2R5Boe2mdelYoSj5eAAQWHR84LdtoEBWZk',0,'A3')
-        worksheet_update(date_,'19Feu-nZlE2R5Boe2mdelYoSj5eAAQWHR84LdtoEBWZk',0,'A4')
-        worksheet_update(resultab,'19Feu-nZlE2R5Boe2mdelYoSj5eAAQWHR84LdtoEBWZk',0,'B3')
-    elif location=='US':
-        time_ = [{'date':str(datetime.now().time())}]
-        date_ = [{'date':str(str(date.today()))}]
-        worksheet_update(time_,'19Feu-nZlE2R5Boe2mdelYoSj5eAAQWHR84LdtoEBWZk',0,'D3')
-        worksheet_update(date_,'19Feu-nZlE2R5Boe2mdelYoSj5eAAQWHR84LdtoEBWZk',0,'D4')
-        worksheet_update(resultab,'19Feu-nZlE2R5Boe2mdelYoSj5eAAQWHR84LdtoEBWZk',0,'E3')
-    time.sleep(3)
+            driver.get('https://twitter.com/settings/explore/location')
+            wait = WebDriverWait(driver, 20)
+            wait.until(EC.presence_of_element_located((By.XPATH, "//span[normalize-space()='Locations']")))
+            resultab=[]
+            element = driver.find_element(By.XPATH, "//span[normalize-space()='Locations']")
+            time.sleep(2)
+            # create action chain object
+            action = ActionChains(driver)
+            scroll_origin = ScrollOrigin.from_element(element)
+            action.scroll_from_origin(scroll_origin, 0, 20000).perform()
+            time.sleep(5)
+            action.scroll_from_origin(scroll_origin, 0, 20000).perform()
+            time.sleep(2)
+            action.scroll_from_origin(scroll_origin, 0, 20000).perform()
+            time.sleep(2)
+            action.scroll_from_origin(scroll_origin, 0, -20000).perform()
+            time.sleep(2)
+            action.scroll_from_origin(scroll_origin, 0, 4900).perform()
+            time.sleep(2)
+            action.scroll_from_origin(scroll_origin, 0, -20000).perform()
+            time.sleep(2)
+            action.scroll_from_origin(scroll_origin, 0, 20000).perform()
+            time.sleep(2)
+            action.scroll_from_origin(scroll_origin, 0, -20000).perform()
+            time.sleep(2)
+            if location=='India':
+                action.scroll_from_origin(scroll_origin, 0, 4400).perform()
+                wait.until(EC.presence_of_element_located((By.XPATH, "//span[normalize-space()='India']")))
+                elementin=driver.find_element(By.XPATH, "//span[normalize-space()='India']")
+                time.sleep(2)
+                action.move_to_element(elementin).click().perform()
+            elif location=='US':
+                action.scroll_from_origin(scroll_origin, 0, 9900).perform()
+                wait.until(EC.presence_of_element_located((By.XPATH, "//span[normalize-space()='United States']")))
+                elementin=driver.find_element(By.XPATH, "//span[normalize-space()='United States']")
+                time.sleep(2)
+                action.move_to_element(elementin).click().perform()
+            elif location=='UK':
+                action.scroll_from_origin(scroll_origin, 0, 9900).perform()
+                wait.until(EC.presence_of_element_located((By.XPATH, "//span[normalize-space()='United Kingdom']")))
+                elementin=driver.find_element(By.XPATH, "//span[normalize-space()='United Kingdom']")
+                time.sleep(2)
+                action.move_to_element(elementin).click().perform()
+            elif location=='Russia':
+                action.scroll_from_origin(scroll_origin, 0, 7800).perform()
+                wait.until(EC.presence_of_element_located((By.XPATH, "//span[normalize-space()='Russia']")))
+                elementin=driver.find_element(By.XPATH, "//span[normalize-space()='Russia']")
+                time.sleep(2)
+                action.move_to_element(elementin).click().perform()
+            elif location=='Saudi Arabia':
+                action.scroll_from_origin(scroll_origin, 0, 7800).perform()
+                wait.until(EC.presence_of_element_located((By.XPATH, "//span[normalize-space()='Saudi Arabia']")))
+                elementin=driver.find_element(By.XPATH, "//span[normalize-space()='Saudi Arabia']")
+                action.move_to_element(elementin).click().perform()
+            elif location=='Brazil':
+                action.scroll_from_origin(scroll_origin, 0, 1200).perform()
+                wait.until(EC.presence_of_element_located((By.XPATH, "//span[normalize-space()='Brazil']")))
+                elementin=driver.find_element(By.XPATH, "//span[normalize-space()='Brazil']")
+                time.sleep(2)
+                action.move_to_element(elementin).click().perform()
+            elif location=='Portugal':
+                action.scroll_from_origin(scroll_origin, 0, 7600).perform()
+                wait.until(EC.presence_of_element_located((By.XPATH, "//span[normalize-space()='Portugal']")))
+                elementin=driver.find_element(By.XPATH, "//span[normalize-space()='Portugal']")
+                time.sleep(2)
+                action.move_to_element(elementin).click().perform()
+            elif location=='Spain':
+                action.scroll_from_origin(scroll_origin, 0, 8500).perform()
+                wait.until(EC.presence_of_element_located((By.XPATH, "//span[normalize-space()='Spain']")))
+                elementin=driver.find_element(By.XPATH, "//span[normalize-space()='Spain']")
+                time.sleep(2)
+                action.move_to_element(elementin).click().perform()
+            elif location=='Italy':
+                action.scroll_from_origin(scroll_origin, 0, 4700).perform()
+                wait.until(EC.presence_of_element_located((By.XPATH, "//span[normalize-space()='Italy']")))
+                elementin=driver.find_element(By.XPATH, "//span[normalize-space()='Italy']")
+                time.sleep(2)
+                action.move_to_element(elementin).click().perform()
+            elif location=='Germany':
+                action.scroll_from_origin(scroll_origin, 0, 3500).perform()
+                wait.until(EC.presence_of_element_located((By.XPATH, "//span[normalize-space()='Germany']")))
+                elementin=driver.find_element(By.XPATH, "//span[normalize-space()='Germany']")
+                time.sleep(2)
+                action.move_to_element(elementin).click().perform()
+            elif location=='France':
+                action.scroll_from_origin(scroll_origin, 0, 3300).perform()
+                wait.until(EC.presence_of_element_located((By.XPATH, "//span[normalize-space()='France']")))
+                elementin=driver.find_element(By.XPATH, "//span[normalize-space()='France']")
+                time.sleep(2)
+                action.move_to_element(elementin).click().perform()
+            time.sleep(5)
+            driver.get("https://twitter.com/explore/tabs/trending")
+            time.sleep(3)
+            wait = WebDriverWait(driver, 20)
+            wait.until(EC.presence_of_element_located((By.XPATH, "//div[@class='css-901oao r-18jsvk2 r-37j5jr r-a023e6 r-b88u0q r-rjixqe r-1bymd8e r-bcqeeo r-qvutc0']")))
+            time.sleep(1)
+            driver.execute_script("window.scrollBy(0, 300);")
+            resultsx = driver.find_elements(By.XPATH, "//div[@class='css-1dbjc4n r-16y2uox r-bnwqim']")
+            for result in resultsx:
+                # Use the relative XPATH to find the nested element
+                nested_element = result.find_element(By.XPATH, ".//div[@class='css-901oao r-18jsvk2 r-37j5jr r-a023e6 r-b88u0q r-rjixqe r-1bymd8e r-bcqeeo r-qvutc0']")
+                #print(nested_element.text)
+                try:
+                    nested_element2 = result.find_element(By.XPATH, ".//div[@class='css-901oao r-14j79pv r-37j5jr r-n6v787 r-16dba41 r-1cwl3u0 r-14gqq1x r-bcqeeo r-qvutc0']")
+                    #print(nested_element2.text)
+                    temp={"Tag":str(nested_element.text), "Count":str(nested_element2.text)}
+                except NoSuchElementException:
+                    temp={"Tag":str(nested_element.text), "Count":'No Count'}
+                print(temp)
+                resultab.append(temp)
+            if location=='India':
+                time_ = [{'date':str(datetime.now().time())}]
+                date_ = [{'date':str(str(date.today()))}]
+                worksheet_update(time_,'19Feu-nZlE2R5Boe2mdelYoSj5eAAQWHR84LdtoEBWZk',0,'A3')
+                worksheet_update(date_,'19Feu-nZlE2R5Boe2mdelYoSj5eAAQWHR84LdtoEBWZk',0,'A4')
+                worksheet_update(resultab,'19Feu-nZlE2R5Boe2mdelYoSj5eAAQWHR84LdtoEBWZk',0,'B3')
+            elif location=='US':
+                time_ = [{'date':str(datetime.now().time())}]
+                date_ = [{'date':str(str(date.today()))}]
+                worksheet_update(time_,'19Feu-nZlE2R5Boe2mdelYoSj5eAAQWHR84LdtoEBWZk',0,'D3')
+                worksheet_update(date_,'19Feu-nZlE2R5Boe2mdelYoSj5eAAQWHR84LdtoEBWZk',0,'D4')
+                worksheet_update(resultab,'19Feu-nZlE2R5Boe2mdelYoSj5eAAQWHR84LdtoEBWZk',0,'E3')
+            elif location=='UK':
+                time_ = [{'date':str(datetime.now().time())}]
+                date_ = [{'date':str(str(date.today()))}]
+                worksheet_update(time_,'19Feu-nZlE2R5Boe2mdelYoSj5eAAQWHR84LdtoEBWZk',0,'G3')
+                worksheet_update(date_,'19Feu-nZlE2R5Boe2mdelYoSj5eAAQWHR84LdtoEBWZk',0,'G4')
+                worksheet_update(resultab,'19Feu-nZlE2R5Boe2mdelYoSj5eAAQWHR84LdtoEBWZk',0,'H3')
+            elif location=='Russia':
+                time_ = [{'date':str(datetime.now().time())}]
+                date_ = [{'date':str(str(date.today()))}]
+                worksheet_update(time_,'19Feu-nZlE2R5Boe2mdelYoSj5eAAQWHR84LdtoEBWZk',0,'J3')
+                worksheet_update(date_,'19Feu-nZlE2R5Boe2mdelYoSj5eAAQWHR84LdtoEBWZk',0,'J4')
+                worksheet_update(resultab,'19Feu-nZlE2R5Boe2mdelYoSj5eAAQWHR84LdtoEBWZk',0,'K3')
+            elif location=='Brazil':
+                time_ = [{'date':str(datetime.now().time())}]
+                date_ = [{'date':str(str(date.today()))}]
+                worksheet_update(time_,'19Feu-nZlE2R5Boe2mdelYoSj5eAAQWHR84LdtoEBWZk',0,'M3')
+                worksheet_update(date_,'19Feu-nZlE2R5Boe2mdelYoSj5eAAQWHR84LdtoEBWZk',0,'M4')
+                worksheet_update(resultab,'19Feu-nZlE2R5Boe2mdelYoSj5eAAQWHR84LdtoEBWZk',0,'N3')
+            elif location=='Portugal':
+                time_ = [{'date':str(datetime.now().time())}]
+                date_ = [{'date':str(str(date.today()))}]
+                worksheet_update(time_,'19Feu-nZlE2R5Boe2mdelYoSj5eAAQWHR84LdtoEBWZk',0,'P3')
+                worksheet_update(date_,'19Feu-nZlE2R5Boe2mdelYoSj5eAAQWHR84LdtoEBWZk',0,'P4')
+                worksheet_update(resultab,'19Feu-nZlE2R5Boe2mdelYoSj5eAAQWHR84LdtoEBWZk',0,'Q3')
+            elif location=='Spain':
+                time_ = [{'date':str(datetime.now().time())}]
+                date_ = [{'date':str(str(date.today()))}]
+                worksheet_update(time_,'19Feu-nZlE2R5Boe2mdelYoSj5eAAQWHR84LdtoEBWZk',0,'S3')
+                worksheet_update(date_,'19Feu-nZlE2R5Boe2mdelYoSj5eAAQWHR84LdtoEBWZk',0,'S4')
+                worksheet_update(resultab,'19Feu-nZlE2R5Boe2mdelYoSj5eAAQWHR84LdtoEBWZk',0,'T3')
+            elif location=='Italy':
+                time_ = [{'date':str(datetime.now().time())}]
+                date_ = [{'date':str(str(date.today()))}]
+                worksheet_update(time_,'19Feu-nZlE2R5Boe2mdelYoSj5eAAQWHR84LdtoEBWZk',0,'V3')
+                worksheet_update(date_,'19Feu-nZlE2R5Boe2mdelYoSj5eAAQWHR84LdtoEBWZk',0,'V4')
+                worksheet_update(resultab,'19Feu-nZlE2R5Boe2mdelYoSj5eAAQWHR84LdtoEBWZk',0,'W3')
+            elif location=='Germany':
+                time_ = [{'date':str(datetime.now().time())}]
+                date_ = [{'date':str(str(date.today()))}]
+                worksheet_update(time_,'19Feu-nZlE2R5Boe2mdelYoSj5eAAQWHR84LdtoEBWZk',0,'Y3')
+                worksheet_update(date_,'19Feu-nZlE2R5Boe2mdelYoSj5eAAQWHR84LdtoEBWZk',0,'Y4')
+                worksheet_update(resultab,'19Feu-nZlE2R5Boe2mdelYoSj5eAAQWHR84LdtoEBWZk',0,'Z3')
+            elif location=='France':
+                time_ = [{'date':str(datetime.now().time())}]
+                date_ = [{'date':str(str(date.today()))}]
+                worksheet_update(time_,'19Feu-nZlE2R5Boe2mdelYoSj5eAAQWHR84LdtoEBWZk',0,'AB3')
+                worksheet_update(date_,'19Feu-nZlE2R5Boe2mdelYoSj5eAAQWHR84LdtoEBWZk',0,'AB4')
+                worksheet_update(resultab,'19Feu-nZlE2R5Boe2mdelYoSj5eAAQWHR84LdtoEBWZk',0,'AC3')
+            elif location=='Saudi Arabia':
+                time_ = [{'date':str(datetime.now().time())}]
+                date_ = [{'date':str(str(date.today()))}]
+                worksheet_update(time_,'19Feu-nZlE2R5Boe2mdelYoSj5eAAQWHR84LdtoEBWZk',0,'AE3')
+                worksheet_update(date_,'19Feu-nZlE2R5Boe2mdelYoSj5eAAQWHR84LdtoEBWZk',0,'AE4')
+                worksheet_update(resultab,'19Feu-nZlE2R5Boe2mdelYoSj5eAAQWHR84LdtoEBWZk',0,'AF3')
+            time.sleep(3)
+        except KeyboardInterrupt:
+            flag=True
+            break
+        except Exception as error:
+            print(error)
+            time.sleep(5)
+            continue
+        else:
+            break
+    if flag==True:
+        break
 # Close the browser
 driver.quit()
