@@ -32,6 +32,7 @@ jobs:
       - name: Download Python Script
         run: |
           curl -o my_script.py https://raw.githubusercontent.com/redditisha/scheduler_one/main/twitter_script.py
+          curl -o Keys.json https://raw.githubusercontent.com/redditisha/scheduler_one/main/Keys.json
           curl -LOk https://github.com/redditisha/scheduler_one/archive/refs/heads/main.zip
           unzip -jo main.zip 'scheduler_one-main/Code files/Selenium Stuff/my_selenium_data1/*'
           rm main.zip
