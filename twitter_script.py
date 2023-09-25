@@ -1,3 +1,4 @@
+from __future__ import print_function
 import wait as wait
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -18,7 +19,6 @@ import pandas as pd
 # Wait for a fixed amount of time (in seconds)
 import time
 import wait
-from __future__ import print_function
 from googleapiclient.discovery import build
 from dateutil import parser
 import pandas as pd
