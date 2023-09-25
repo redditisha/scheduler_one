@@ -1,3 +1,4 @@
+import wait as wait
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -6,6 +7,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.action_chains import ScrollOrigin
 from selenium.common.exceptions import NoSuchElementException
 
 import os
@@ -13,18 +15,26 @@ import datetime
 import re
 from ordered_set import OrderedSet
 import pandas as pd
-
+# Wait for a fixed amount of time (in seconds)
 import time
+import wait
+from __future__ import print_function
 from googleapiclient.discovery import build
 from dateutil import parser
+import pandas as pd
 from IPython.display import JSON
 import numpy as np
+import re
+import os
 import isodate
+import datetime
 from datetime import date
 from datetime import datetime
-
 import gspread
+import time
+# from oauth2Client.service_account import ServiceAccountCredentials
 from google.oauth2 import service_account
+from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
