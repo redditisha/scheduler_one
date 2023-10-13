@@ -73,7 +73,7 @@ def worksheet_update(Channel_Details,sheet_id,worksheet_num,Top_left):
         for Column_Values in Rows.values():
             temp.append(Column_Values)
         Item.append(temp)
-    worksheet.update(values=Item, range_name=f"{Top_Left_Index}:{Bottom_Right_Index}")
+    worksheet.update(str(Top_Left_Index+':'+Bottom_Right_Index), Item)
 def next_letter(letter,steps):
     ascii_value = ord(letter)
     new_ascii_value = ascii_value + (int(steps)-1)
