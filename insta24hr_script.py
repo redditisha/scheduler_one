@@ -125,7 +125,8 @@ def insert_empty_row(spreadsheet_id, sheet_name, start_index, end_index):
         print(f"An error occurred: {error}")
         return error
 SCROLL_PAUSE_TIME=5
-#URL_List=[{'Name':'English','Post':'https://www.instagram.com/sadhguru/','Reel':'https://www.instagram.com/sadhguru/reels/'}]
+#URL_List=[
+#{'Name':'English','Post':'https://www.instagram.com/sadhguru/','Reel':'https://www.instagram.com/sadhguru/reels/'}]
 URL_List=[
 {'Name':'English','Post':'https://www.instagram.com/sadhguru/','Reel':'https://www.instagram.com/sadhguru/reels/'},
 {'Name':'Spanish','Post':'https://www.instagram.com/sadhguruespanol/','Reel':'https://www.instagram.com/sadhguruespanol/reels/'},         
@@ -162,7 +163,7 @@ for URL in URL_List:
     service = Service(executable_path = os.getcwd() +"/chromedriver")
     #service = Service(chrome_drive)
     print("loadiing chrome driver")
-    driver = webdriver.Chrome(options=chrome_options, service=service)
+    driver = webdriver.Chrome(options=chrome_options,service=service)
     url = "https://google.com"
     driver.get(url)
     time.sleep(3)
@@ -206,6 +207,7 @@ for URL in URL_List:
                     for a in links:
                         href = a.get('href')
                         #print(href)
+                        text_elements = a.find(class_="x5yr21d xu96u03 x10l6tqk x13vifvy x87ps6o xh8yej3").get('alt')
                         x_path='//a[@href='+'"'+href+'"'+']'
                         try:
                             t2= driver.find_element(By.XPATH,x_path)
@@ -216,9 +218,9 @@ for URL in URL_List:
                             Bulk_add3=Class1.find_elements(By.XPATH, ".//span[@class='html-span xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x1hl2dhg x16tdsg8 x1vvkbs']")
                             Likes=convertvaluetoint(Bulk_add3[0].text)
                             Comments=convertvaluetoint(Bulk_add3[1].text)
-                            temp={'Link':'https://www.instagram.com/p/'+href.split('/')[2],'Likes':Likes,'Comments':Comments}
+                            temp={'Link':'https://www.instagram.com/p/'+href.split('/')[2],'Likes':Likes,'Comments':Comments,'Alt Text':str(text_elements)}
                         except:
-                            temp={'Link':'https://www.instagram.com/p/'+href.split('/')[2],'Likes':0,'Comments':0}
+                            temp={'Link':'https://www.instagram.com/p/'+href.split('/')[2],'Likes':0,'Comments':0,'Alt Text':str(text_elements)}
                         #print(str(Likes)+' '+str(Comments))
                         unique1.append(temp)
             except KeyboardInterrupt:
@@ -347,9 +349,10 @@ for URL in URL_List:
     service = Service(executable_path = os.getcwd() +"/chromedriver")
     #service = Service(chrome_drive)
     print("loadiing chrome driver")
-    driver = webdriver.Chrome(options=chrome_options, service=service)
+    driver = webdriver.Chrome(options=chrome_options,service=service)
     i=0
     for x in Lists:
+        j=0
         while True:
             try:
                 driver.get(x['Link'])
@@ -372,7 +375,12 @@ for URL in URL_List:
                 x['Caption'] = ''
                 x['Published On']= ''
                 time.sleep(5)
-                continue
+                j=j+1
+                if j>=5:
+                    break
+                else:
+                    driver.refresh()
+                    continue
             else:
                 break
         if flag==True:
@@ -397,7 +405,7 @@ for URL in URL_List:
     i=0
     while True:
         if i>=(len(tobeadded)): break
-        desired_order = ['Link', 'Caption', 'Views', 'Published On', 'Likes', 'Comments']
+        desired_order = ['Link', 'Caption', 'Alt Text','Views', 'Published On', 'Likes', 'Comments']
         tobeadded[i] = {key: tobeadded[i][key] for key in desired_order}
         i=i+1
     insert_empty_row('1_bBS5vcGRRGxWsBz202ohIV5k7x0FNHAJ-2FYD9UTBY', URL['Name'], 1, 1+len(tobeadded))
