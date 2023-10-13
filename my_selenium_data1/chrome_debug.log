@@ -1,22 +1,19 @@
-[6282:6282:1013/090841.697277:WARNING:chrome_main_delegate.cc(594)] This is Chrome version 115.0.5790.102 (not a warning)
-[6282:6282:1013/090841.770923:INFO:chrome_browser_cloud_management_controller.cc(167)] Starting CBCM Controller Initialization
-[6282:6282:1013/090841.771216:INFO:chrome_browser_cloud_management_controller.cc(195)] No machine level policy manager exists.
-[6330:7:1013/090841.777545:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
-[6324:6324:1013/090841.802468:WARNING:sandbox_linux.cc(393)] InitializeSandbox() called with multiple threads in process gpu-process.
-[6324:6324:1013/090841.805110:WARNING:gpu_memory_buffer_support_x11.cc(49)] dri3 extension not supported.
-[6377:13:1013/090841.827193:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
-[6380:14:1013/090841.829329:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
-[6282:6282:1013/090841.837507:WARNING:bluez_dbus_manager.cc(247)] Floss manager not present, cannot set Floss enable/disable.
-[6282:6282:1013/090841.837832:ERROR:object_proxy.cc(590)] Failed to call method: org.freedesktop.portal.Settings.Read: object_path= /org/freedesktop/portal/desktop: org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.portal.Desktop was not provided by any .service files
-[6380:27:1013/090841.880944:ERROR:command_buffer_proxy_impl.cc(128)] ContextResult::kTransientFailure: Failed to send GpuControl.CreateCommandBuffer.
-[6399:29:1013/090841.959880:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
-[6414:42:1013/090841.987201:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
-[6424:50:1013/090842.120134:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
-[6431:55:1013/090842.172909:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
-[6282:6282:1013/090842.751581:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'ambient-light-sensor'.", source:  (0)
-[6282:6282:1013/090842.751669:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'bluetooth'.", source:  (0)
-[6467:76:1013/090846.849153:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
-[6328:6341:1013/090847.074955:WARNING:sqlite_persistent_store_backend_base.cc(190)] Failed to post task from FlushAndNotifyInBackground@net/extras/sqlite/sqlite_persistent_store_backend_base.cc:238 to client_task_runner_.
-[6328:6343:1013/090847.077634:WARNING:sqlite_persistent_store_backend_base.cc(190)] Failed to post task from FlushAndNotifyInBackground@net/extras/sqlite/sqlite_persistent_store_backend_base.cc:238 to client_task_runner_.
-[6328:6343:1013/090847.077649:WARNING:sqlite_persistent_store_backend_base.cc(190)] Failed to post task from FlushAndNotifyInBackground@net/extras/sqlite/sqlite_persistent_store_backend_base.cc:238 to client_task_runner_.
-[6282:6282:1013/090847.084111:WARNING:pref_notifier_impl.cc(41)] Pref observer for media_router.cast_allow_all_ips found at shutdown.
+[8581:8581:1013/091348.110567:WARNING:chrome_main_delegate.cc(594)] This is Chrome version 115.0.5790.102 (not a warning)
+[8581:8581:1013/091348.183143:INFO:chrome_browser_cloud_management_controller.cc(167)] Starting CBCM Controller Initialization
+[8581:8581:1013/091348.183162:INFO:chrome_browser_cloud_management_controller.cc(195)] No machine level policy manager exists.
+[8628:7:1013/091348.190397:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
+[8623:8623:1013/091348.226729:WARNING:sandbox_linux.cc(393)] InitializeSandbox() called with multiple threads in process gpu-process.
+[8623:8623:1013/091348.228528:WARNING:gpu_memory_buffer_support_x11.cc(49)] dri3 extension not supported.
+[8674:13:1013/091348.237980:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
+[8677:14:1013/091348.243616:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
+[8581:8581:1013/091348.250175:WARNING:bluez_dbus_manager.cc(247)] Floss manager not present, cannot set Floss enable/disable.
+[8581:8581:1013/091348.250394:ERROR:object_proxy.cc(590)] Failed to call method: org.freedesktop.portal.Settings.Read: object_path= /org/freedesktop/portal/desktop: org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.portal.Desktop was not provided by any .service files
+[8700:33:1013/091348.382103:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
+[8712:42:1013/091348.543109:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
+[8719:47:1013/091348.618111:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
+[8729:52:1013/091354.528665:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
+[8581:8581:1013/091355.120729:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'ambient-light-sensor'.", source:  (0)
+[8581:8581:1013/091355.120765:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'bluetooth'.", source:  (0)
+[8626:8642:1013/091357.558184:WARNING:sqlite_persistent_store_backend_base.cc(190)] Failed to post task from FlushAndNotifyInBackground@net/extras/sqlite/sqlite_persistent_store_backend_base.cc:238 to client_task_runner_.
+[8626:8642:1013/091357.558292:WARNING:sqlite_persistent_store_backend_base.cc(190)] Failed to post task from FlushAndNotifyInBackground@net/extras/sqlite/sqlite_persistent_store_backend_base.cc:238 to client_task_runner_.
+[8581:8581:1013/091357.565936:WARNING:pref_notifier_impl.cc(41)] Pref observer for media_router.cast_allow_all_ips found at shutdown.

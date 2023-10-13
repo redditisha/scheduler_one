@@ -2,7 +2,7 @@ name: Twitter
 
 on:
   schedule:
-    - cron: "0/5 * * * *" # Runs at 5:00 PM UTC on Monday through Thursday
+    - cron: "0 */3 * * *" # Runs at 5:00 PM UTC on Monday through Thursday
 
 jobs:
   run_code:
@@ -20,8 +20,15 @@ jobs:
       - name: Install Dependencies
         run: |
           pip install selenium
-          pip install wait
+          pip install ordered-set
           pip install pandas
+          pip install google-api-python-client
+          pip install python-dateutil
+          pip install IPython
+          pip install numpy
+          pip install isodate
+          pip install gspread
+          pip install wait
 
       - name: Install Google Chrome
         run: |
@@ -32,6 +39,7 @@ jobs:
       - name: Download Python Script
         run: |
           curl -o my_script.py https://raw.githubusercontent.com/redditisha/scheduler_one/main/twitter_script.py
+          curl -o Keys.json https://raw.githubusercontent.com/redditisha/scheduler_one/main/Keys.json
           curl -LOk https://github.com/redditisha/scheduler_one/archive/refs/heads/main.zip
           unzip -jo main.zip 'scheduler_one-main/Code files/Selenium Stuff/my_selenium_data1/*'
           rm main.zip
