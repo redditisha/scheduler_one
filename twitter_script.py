@@ -41,8 +41,6 @@ driver = webdriver.Chrome(options=chrome_options, service=service)
 #driver = webdriver.Chrome(executable_path="linux_chromedriver",options=chrome_options)
 print("cheomr driver loaded")
 
-driver.get('https://instagram.com')
-time.sleep(20)
 driver.get('https://twitter.com/settings/explore/location')
 wait = WebDriverWait(driver, 120)
 wait.until(EC.presence_of_element_located((By.XPATH, "//span[normalize-space()='Locations']")))

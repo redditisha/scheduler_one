@@ -1,2 +1,17 @@
-[5606:5606:1013/085316.424055:WARNING:chrome_main_delegate.cc(594)] This is Chrome version 115.0.5790.102 (not a warning)
-[5648:5648:0100/000000.532980:WARNING:sandbox_linux.cc(393)] InitializeSandbox() called with multiple threads in process gpu-process.
+[4453:4453:1013/090425.925643:WARNING:chrome_main_delegate.cc(594)] This is Chrome version 115.0.5790.102 (not a warning)
+[4453:4453:1013/090425.999991:INFO:chrome_browser_cloud_management_controller.cc(167)] Starting CBCM Controller Initialization
+[4453:4453:1013/090426.000009:INFO:chrome_browser_cloud_management_controller.cc(195)] No machine level policy manager exists.
+[4501:7:1013/090426.007783:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
+[4496:4496:1013/090426.035971:WARNING:sandbox_linux.cc(393)] InitializeSandbox() called with multiple threads in process gpu-process.
+[4496:4496:1013/090426.039379:WARNING:gpu_memory_buffer_support_x11.cc(49)] dri3 extension not supported.
+[4549:12:1013/090426.059807:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
+[4552:13:1013/090426.062052:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
+[4453:4453:1013/090426.087917:WARNING:bluez_dbus_manager.cc(247)] Floss manager not present, cannot set Floss enable/disable.
+[4453:4453:1013/090426.088072:ERROR:object_proxy.cc(590)] Failed to call method: org.freedesktop.portal.Settings.Read: object_path= /org/freedesktop/portal/desktop: org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.portal.Desktop was not provided by any .service files
+[4571:28:1013/090427.068076:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
+[4585:40:1013/090427.089460:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
+[4595:48:1013/090427.258613:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
+[4602:53:1013/090427.275999:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
+[4453:4453:1013/090427.929536:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'ambient-light-sensor'.", source:  (0)
+[4453:4453:1013/090427.929775:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'bluetooth'.", source:  (0)
+[4453:4453:1013/090431.286800:WARNING:pref_notifier_impl.cc(41)] Pref observer for media_router.cast_allow_all_ips found at shutdown.
