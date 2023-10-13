@@ -125,9 +125,8 @@ def insert_empty_row(spreadsheet_id, sheet_name, start_index, end_index):
         print(f"An error occurred: {error}")
         return error
 SCROLL_PAUSE_TIME=5
+#URL_List=[{'Name':'English','Post':'https://www.instagram.com/sadhguru/','Reel':'https://www.instagram.com/sadhguru/reels/'}]
 URL_List=[
-{'Name':'English','Post':'https://www.instagram.com/sadhguru/','Reel':'https://www.instagram.com/sadhguru/reels/'}]
-'''URL_List=[
 {'Name':'English','Post':'https://www.instagram.com/sadhguru/','Reel':'https://www.instagram.com/sadhguru/reels/'},
 {'Name':'Spanish','Post':'https://www.instagram.com/sadhguruespanol/','Reel':'https://www.instagram.com/sadhguruespanol/reels/'},         
 {'Name':'Russian','Post':'https://www.instagram.com/sadhguru.russian/','Reel':'https://www.instagram.com/sadhguru.russian/reels/'},
@@ -149,7 +148,7 @@ URL_List=[
 {'Name':'Malayalam','Post':'https://www.instagram.com/sadhguru.malayalam/','Reel':'https://www.instagram.com/sadhguru.malayalam/reels/'},
 {'Name':'Marathi','Post':'https://www.instagram.com/sadhguru_marathi_official/','Reel':'https://www.instagram.com/sadhguru_marathi_official/reels/'},
 {'Name':'Gujarati','Post':'https://www.instagram.com/sadhguru.gujarati/','Reel':'https://www.instagram.com/sadhguru.gujarati/reels/'}
-]'''
+]
 
 for URL in URL_List:
     # Set the path to a new directory for user data
