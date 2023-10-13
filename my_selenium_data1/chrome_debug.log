@@ -1,97 +1,21 @@
-[16301:16301:0922/172627.803623:WARNING:chrome_main_delegate.cc(594)] This is Chrome version 115.0.5790.102 (not a warning)
-[16301:16301:0922/172627.878180:INFO:chrome_browser_cloud_management_controller.cc(167)] Starting CBCM Controller Initialization
-[16301:16301:0922/172627.878515:INFO:chrome_browser_cloud_management_controller.cc(195)] No machine level policy manager exists.
-[16348:7:0922/172627.886253:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
-[16343:16343:0922/172627.909888:WARNING:sandbox_linux.cc(393)] InitializeSandbox() called with multiple threads in process gpu-process.
-[16343:16343:0922/172627.916638:WARNING:gpu_memory_buffer_support_x11.cc(49)] dri3 extension not supported.
-[16397:13:0922/172627.935209:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
-[16301:16301:0922/172627.944699:WARNING:bluez_dbus_manager.cc(247)] Floss manager not present, cannot set Floss enable/disable.
-[16301:16301:0922/172627.944877:ERROR:object_proxy.cc(590)] Failed to call method: org.freedesktop.portal.Settings.Read: object_path= /org/freedesktop/portal/desktop: org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.portal.Desktop was not provided by any .service files
-[16400:14:0922/172627.950068:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
-[16422:32:0922/172628.084491:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
-[16431:39:0922/172628.112354:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
-[16445:51:0922/172628.312110:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
-[16452:56:0922/172628.383447:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
-[16422:70:0922/172629.650348:INFO:peer_connection_dependency_factory.cc(629)] Running WebRTC with a combined Network and Worker thread.
-[16301:16301:0922/172630.051634:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172630.057968:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172630.072787:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172630.088764:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172630.107672:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172630.139808:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172630.144647:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172630.158012:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172630.176387:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172630.226972:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172630.516170:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172630.537516:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172630.548758:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172630.566054:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172630.581842:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172630.599120:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172630.615397:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172630.632094:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172630.649864:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172630.664923:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172630.683097:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172630.699111:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172631.021640:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172632.132141:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172632.141797:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172632.155356:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172632.168688:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172632.183072:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172632.198176:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172632.217852:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172632.232752:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172632.248875:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172632.270021:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172632.283859:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172632.302394:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172632.335316:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172632.350740:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172632.365540:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172632.381815:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172632.396138:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172632.413453:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172632.427043:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172632.441540:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172632.455334:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172632.470783:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172632.484804:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172632.501116:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172632.516110:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172637.189166:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172637.207652:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172637.224794:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172637.231695:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172637.249007:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172637.265102:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172637.366751:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172637.517989:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172637.525205:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172637.544995:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172637.558256:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172637.572871:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172637.586406:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172637.600275:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172637.620281:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172637.632527:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172637.648538:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172637.665901:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172637.683070:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172637.701052:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172637.715989:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172637.741336:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172637.752523:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172637.765586:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172637.782735:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172637.799550:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172637.817657:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172637.974348:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16301:16301:0922/172637.989894:INFO:CONSOLE(0)] "ResizeObserver loop completed with undelivered notifications.", source: https://twitter.com/settings/explore/location (0)
-[16422:70:0922/172653.911330:INFO:peer_connection_dependency_factory.cc(629)] Running WebRTC with a combined Network and Worker thread.
-[16422:70:0922/172705.167599:INFO:peer_connection_dependency_factory.cc(629)] Running WebRTC with a combined Network and Worker thread.
-[16422:71:0922/172705.406320:WARNING:webrtc_voice_engine.cc(641)] Attempting to stop aecdump when no audio processing module is present
-[16422:71:0922/172713.574617:WARNING:webrtc_voice_engine.cc(641)] Attempting to stop aecdump when no audio processing module is present
-[16301:16301:0922/172714.861172:WARNING:pref_notifier_impl.cc(41)] Pref observer for media_router.cast_allow_all_ips found at shutdown.
+[5296:5296:1013/085252.934180:WARNING:chrome_main_delegate.cc(594)] This is Chrome version 115.0.5790.102 (not a warning)
+[5296:5296:1013/085253.030631:INFO:chrome_browser_cloud_management_controller.cc(167)] Starting CBCM Controller Initialization
+[5296:5296:1013/085253.030650:INFO:chrome_browser_cloud_management_controller.cc(195)] No machine level policy manager exists.
+[5343:7:1013/085253.057769:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
+[5338:5338:1013/085253.144797:WARNING:sandbox_linux.cc(393)] InitializeSandbox() called with multiple threads in process gpu-process.
+[5338:5338:1013/085253.161013:WARNING:gpu_memory_buffer_support_x11.cc(49)] dri3 extension not supported.
+[5385:12:1013/085253.183999:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
+[5388:13:1013/085253.186424:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
+[5296:5296:1013/085253.207544:WARNING:bluez_dbus_manager.cc(247)] Floss manager not present, cannot set Floss enable/disable.
+[5296:5296:1013/085253.207694:ERROR:object_proxy.cc(590)] Failed to call method: org.freedesktop.portal.Settings.Read: object_path= /org/freedesktop/portal/desktop: org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.portal.Desktop was not provided by any .service files
+[5388:24:1013/085253.255068:ERROR:command_buffer_proxy_impl.cc(128)] ContextResult::kTransientFailure: Failed to send GpuControl.CreateCommandBuffer.
+[5407:28:1013/085253.379409:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
+[5418:37:1013/085253.397702:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
+[5430:47:1013/085253.600606:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
+[5436:52:1013/085253.667924:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
+[5296:5296:1013/085254.133870:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'ambient-light-sensor'.", source:  (0)
+[5296:5296:1013/085254.133901:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'bluetooth'.", source:  (0)
+[5296:5296:1013/085255.634141:INFO:CONSOLE(0)] "[DOM] Input elements should have autocomplete attributes (suggested: "current-password"): (More info: https://goo.gl/9p2vKq) %o", source: https://www.instagram.com/ (0)
+[5342:5353:1013/085305.538264:WARNING:sqlite_persistent_store_backend_base.cc(190)] Failed to post task from FlushAndNotifyInBackground@net/extras/sqlite/sqlite_persistent_store_backend_base.cc:238 to client_task_runner_.
+[5342:5353:1013/085305.538311:WARNING:sqlite_persistent_store_backend_base.cc(190)] Failed to post task from FlushAndNotifyInBackground@net/extras/sqlite/sqlite_persistent_store_backend_base.cc:238 to client_task_runner_.
+[5296:5296:1013/085305.544009:WARNING:pref_notifier_impl.cc(41)] Pref observer for media_router.cast_allow_all_ips found at shutdown.
