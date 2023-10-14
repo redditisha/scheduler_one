@@ -139,7 +139,7 @@ URL_List=[
 {'Name':'Arabic','Post':'https://www.instagram.com/sadhguru.arabic/','Reel':'https://www.instagram.com/sadhguru.arabic/reels/'},
 {'Name':'Koreyan','Post':'https://www.instagram.com/sadhguru.korea/','Reel':'https://www.instagram.com/sadhguru.korea/reels/'},
 {'Name':'Romanian','Post':'https://www.instagram.com/sadhguru.romana/','Reel':'https://www.instagram.com/sadhguru.romana/reels/'},
-{'Name':'Persian','Post':'https://www.instagram.com/sadhguru_persian/','Reel':'https://www.instagram.com/sadhguru_persian/reels/'},
+#{'Name':'Persian','Post':'https://www.instagram.com/sadhguru_persian/','Reel':'https://www.instagram.com/sadhguru_persian/reels/'},
 {'Name':'T. Chinese','Post':'https://www.instagram.com/sadhguru.traditionalchinese/','Reel':'https://www.instagram.com/sadhguru.traditionalchinese/reels/'},
 {'Name':'Hindi','Post':'https://www.instagram.com/sadhguru.hindiofficial/','Reel':'https://www.instagram.com/sadhguru.hindiofficial/reels/'},
 {'Name':'Telugu','Post':'https://www.instagram.com/sadhgurutelugu/','Reel':'https://www.instagram.com/sadhgurutelugu/reels/'},
@@ -163,6 +163,7 @@ for URL in URL_List:
     service = Service(executable_path = os.getcwd() +"/chromedriver")
     #service = Service(chrome_drive)
     print("loadiing chrome driver")
+    #driver = webdriver.Chrome(options=chrome_options)
     driver = webdriver.Chrome(options=chrome_options,service=service)
     url = "https://google.com"
     driver.get(url)
@@ -349,6 +350,7 @@ for URL in URL_List:
     service = Service(executable_path = os.getcwd() +"/chromedriver")
     #service = Service(chrome_drive)
     print("loadiing chrome driver")
+    #driver = webdriver.Chrome(options=chrome_options)
     driver = webdriver.Chrome(options=chrome_options,service=service)
     i=0
     for x in Lists:
@@ -372,6 +374,7 @@ for URL in URL_List:
                 break
             except Exception as error:
                 print(error)
+                print(x['Link'])
                 x['Caption'] = ''
                 x['Published On']= ''
                 time.sleep(5)
@@ -395,7 +398,9 @@ for URL in URL_List:
     while True:
         if i>=(len(Lists)):break
         result_date = (datetime.strptime(str(date.today()), "%Y-%m-%d") - timedelta(days=1)).strftime('%Y-%m-%d')
-        print(i)
+        if Lists[i]['Published On']=='': 
+            i=i+1
+            continue
         timestamp_object = datetime.fromisoformat(Lists[i]['Published On'][:-1]).strftime('%Y-%m-%d')
 
         if result_date==timestamp_object:
@@ -405,9 +410,10 @@ for URL in URL_List:
     i=0
     while True:
         if i>=(len(tobeadded)): break
-        desired_order = ['Link', 'Caption', 'Alt Text','Views', 'Published On', 'Likes', 'Comments']
+        desired_order = ['Link', 'Caption', 'Views', 'Published On', 'Likes', 'Comments','Alt Text']
         tobeadded[i] = {key: tobeadded[i][key] for key in desired_order}
         i=i+1
+    print('Done')
     insert_empty_row('1_bBS5vcGRRGxWsBz202ohIV5k7x0FNHAJ-2FYD9UTBY', URL['Name'], 1, 1+len(tobeadded))
     Top_left='A2'
     worksheet_update(tobeadded,'1_bBS5vcGRRGxWsBz202ohIV5k7x0FNHAJ-2FYD9UTBY',URL['Name'],Top_left)
