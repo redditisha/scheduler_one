@@ -130,7 +130,7 @@ SCROLL_PAUSE_TIME=5
 URL_List=[
 {'Name':'English','Post':'https://www.instagram.com/sadhguru/','Reel':'https://www.instagram.com/sadhguru/reels/'},
 #{'Name':'Spanish','Post':'https://www.instagram.com/sadhguruespanol/','Reel':'https://www.instagram.com/sadhguruespanol/reels/'},         
-{#'Name':'Russian','Post':'https://www.instagram.com/sadhguru.russian/','Reel':'https://www.instagram.com/sadhguru.russian/reels/'},
+{'Name':'Russian','Post':'https://www.instagram.com/sadhguru.russian/','Reel':'https://www.instagram.com/sadhguru.russian/reels/'},
 #{'Name':'French','Post':'https://www.instagram.com/sadhguru.francais/','Reel':'https://www.instagram.com/sadhguru.francais/reels/'},
 #{'Name':'German','Post':'https://www.instagram.com/sadhguru.deutsch/','Reel':'https://www.instagram.com/sadhguru.deutsch/reels/'},
 #{'Name':'Portuguese','Post':'https://www.instagram.com/sadhguru_portugues/','Reel':'https://www.instagram.com/sadhguru_portugues/reels/'},
