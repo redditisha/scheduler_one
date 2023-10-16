@@ -210,7 +210,7 @@ for URL in URL_List:
                             links = div.find_all('a')
                             for a in links:
                                 href = a.get('href')
-                                #print(href)
+                                print(href)
                                 text_elements = a.find(class_="x5yr21d xu96u03 x10l6tqk x13vifvy x87ps6o xh8yej3").get('alt')
                                 x_path='//a[@href='+'"'+href+'"'+']'
                                 try:
@@ -225,7 +225,7 @@ for URL in URL_List:
                                     temp={'Link':'https://www.instagram.com/p/'+href.split('/')[2],'Likes':Likes,'Comments':Comments,'Alt Text':str(text_elements)}
                                 except:
                                     temp={'Link':'https://www.instagram.com/p/'+href.split('/')[2],'Likes':0,'Comments':0,'Alt Text':str(text_elements)}
-                                #print(str(Likes)+' '+str(Comments))
+                                print(str(Likes)+' '+str(Comments))
                                 unique1.append(temp)
                     except KeyboardInterrupt:
                         flag=True
