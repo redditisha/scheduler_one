@@ -178,7 +178,7 @@ for URL in URL_List:
             while True:
                 html_source = " "
                 i = 0
-        
+                print('haha')
                 # try to scroll 5 times in case of slow connection
                 while i < 5:
         
@@ -198,6 +198,7 @@ for URL in URL_List:
                 while True:
                     try:
                         page_source = driver.page_source
+                        print(page_source)
                         #<span class="">10.6K</span>
                         # Parse the page source with BeautifulSoup
                         soup = BeautifulSoup(page_source, 'html.parser')
@@ -258,6 +259,7 @@ for URL in URL_List:
             while True:
                 html_source = " "
                 i = 0
+                print('haha')
                 # try to scroll 5 times in case of slow connection
                 while i < 5:
                     # Scroll down to one page length
@@ -276,7 +278,7 @@ for URL in URL_List:
                     try:
                         # Get the page source after it has loaded
                         page_source = driver.page_source
-        
+                        print(page_source)
                         # Parse the page source with BeautifulSoup
                         soup = BeautifulSoup(page_source, 'html.parser')
         
