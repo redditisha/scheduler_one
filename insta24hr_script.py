@@ -198,7 +198,7 @@ for URL in URL_List:
                 while True:
                     try:
                         page_source = driver.page_source
-                        print(page_source)
+                        #print(page_source)
                         #<span class="">10.6K</span>
                         # Parse the page source with BeautifulSoup
                         soup = BeautifulSoup(page_source, 'html.parser')
@@ -278,7 +278,7 @@ for URL in URL_List:
                     try:
                         # Get the page source after it has loaded
                         page_source = driver.page_source
-                        print(page_source)
+                        #print(page_source)
                         # Parse the page source with BeautifulSoup
                         soup = BeautifulSoup(page_source, 'html.parser')
         
