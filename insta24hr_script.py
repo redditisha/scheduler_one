@@ -152,270 +152,286 @@ URL_List=[
 ]
 
 for URL in URL_List:
-    # Set the path to a new directory for user data
-    user_data_dir = os.path.join(os.getcwd(), 'my_selenium_data1')
-    # Create Chrome Options and set user data directory
-    chrome_options = Options()
-    chrome_options.add_argument(f"user-data-dir={user_data_dir}")
-    chrome_options.add_argument("--headless")
-    chrome_options.add_argument(" --window-size=1920x1080")
-    chrome_options.add_argument(" --ignore-certificate-errors")
-    service = Service(executable_path = os.getcwd() +"/chromedriver")
-    #service = Service(chrome_drive)
-    print("loadiing chrome driver")
-    #driver = webdriver.Chrome(options=chrome_options)
-    driver = webdriver.Chrome(options=chrome_options,service=service)
-    url = "https://google.com"
-    driver.get(url)
-    time.sleep(3)
-    driver.get(URL['Post'])
-    print('URL Visible: '+URL['Post'])
-    last_height = driver.execute_script("return document.body.scrollHeight")
-    unique1=[]
+    k=0
     while True:
-        html_source = " "
-        i = 0
-
-        # try to scroll 5 times in case of slow connection
-        while i < 5:
-
-            # Scroll down to one page length
-            driver.execute_script("window.scrollBy(0, 1500);")
-
-            # Wait to load page
-            time.sleep(SCROLL_PAUSE_TIME)
-            # get page height in pixels
-            new_height = driver.execute_script("return document.body.scrollHeight")
-
-            # break this loop when you are able to scroll further
-            if new_height != last_height:
-                break
-            i += 1
-        flag=False
-        while True:
-            try:
-                page_source = driver.page_source
-                #<span class="">10.6K</span>
-                # Parse the page source with BeautifulSoup
-                soup = BeautifulSoup(page_source, 'html.parser')
-
-                # Find the divs with class 'main-page-wrapper'
-                divs = soup.select('div._aabd._aa8k._al3l')
-                wait = WebDriverWait(driver, 10)# Iterate through the divs and find links within them
-                for div in divs:
-                    temp = {}
-                    links = div.find_all('a')
-                    for a in links:
-                        href = a.get('href')
-                        #print(href)
-                        text_elements = a.find(class_="x5yr21d xu96u03 x10l6tqk x13vifvy x87ps6o xh8yej3").get('alt')
-                        x_path='//a[@href='+'"'+href+'"'+']'
-                        try:
-                            t2= driver.find_element(By.XPATH,x_path)
-                            actions = ActionChains(driver)
-                            actions.move_to_element(t2).perform()
-                            wait.until(EC.presence_of_element_located((By.XPATH, "//div[@class='_ac2d']")))
-                            Class1= driver.find_element(By.XPATH, "//div[@class='_ac2d']")
-                            Bulk_add3=Class1.find_elements(By.XPATH, ".//span[@class='html-span xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x1hl2dhg x16tdsg8 x1vvkbs']")
-                            Likes=convertvaluetoint(Bulk_add3[0].text)
-                            Comments=convertvaluetoint(Bulk_add3[1].text)
-                            temp={'Link':'https://www.instagram.com/p/'+href.split('/')[2],'Likes':Likes,'Comments':Comments,'Alt Text':str(text_elements)}
-                        except:
-                            temp={'Link':'https://www.instagram.com/p/'+href.split('/')[2],'Likes':0,'Comments':0,'Alt Text':str(text_elements)}
-                        #print(str(Likes)+' '+str(Comments))
-                        unique1.append(temp)
-            except KeyboardInterrupt:
-                flag=True
-                break
-            except Exception as error:
-                print(error)
-                time.sleep(5)
-                continue
-            else:
-                break
-        if flag==True:
-            break    
-        df = pd.DataFrame(unique1)
-        unique_df = df.drop_duplicates()
-        unique1 = unique_df.to_dict('records')
-        new_height = driver.execute_script("return document.body.scrollHeight")
-        if len(unique1)>=20:
-            break
-        elif new_height == last_height:
-            break
-        print('Total Unique '+str(len(unique1)))
-        last_height = new_height
-    if flag==True:
-        break
-    time.sleep(3)
-    driver.get(URL['Reel'])
-    print('URL Visible: '+URL['Reel'])
-    last_height = driver.execute_script("return document.body.scrollHeight")
-    unique2=[]
-    while True:
-        html_source = " "
-        i = 0
-        # try to scroll 5 times in case of slow connection
-        while i < 5:
-            # Scroll down to one page length
-            driver.execute_script("window.scrollBy(0, 1500);")
-            # Wait to load page
-            time.sleep(SCROLL_PAUSE_TIME)
-            # get page height in pixels
-            new_height = driver.execute_script("return document.body.scrollHeight")
-
-            # break this loop when you are able to scroll further
-            if new_height != last_height:
-                break
-            i += 1
-        flag=False
-        while True:
-            try:
-                # Get the page source after it has loaded
-                page_source = driver.page_source
-
-                # Parse the page source with BeautifulSoup
-                soup = BeautifulSoup(page_source, 'html.parser')
-
-                # Find the divs with class 'main-page-wrapper'
-                divs = soup.find_all(class_='_aajw')
-
-                # Iterate through the divs and find links within them
-                for div in divs:
-                    temp = {}
-                    links = div.find_all('a')
-                    for a in links:
-                        href = a.get('href')
-                        #print(href)
-                        spansviews = a.find_all('span', class_='x1lliihq x1plvlek xryxfnj x1n2onr6 x193iq5w xeuugli x1fj9vlw x13faqbe x1vvkbs x1s928wv xhkezso x1gmr53x x1cpjm7i x1fgarty x1943h6x x1i0vuye xl565be x1s688f x9bdzbf x1tu3fi x3x7a5m x10wh9bi x1wdrske x8viiok x18hxmgj')[0].text
-                        #print(spansviews)
-                        Views=convertvaluetoint(spansviews)
-                        try:
-                            spanslikes = a.find_all('span', class_='x1lliihq x1plvlek xryxfnj x1n2onr6 x193iq5w xeuugli x1fj9vlw x13faqbe x1vvkbs x1s928wv xhkezso x1gmr53x x1cpjm7i x1fgarty x1943h6x x1i0vuye xl565be x1xlr1w8 x9bdzbf x10wh9bi x1wdrske x8viiok x18hxmgj')
-                            likesonpage=spanslikes[0].text
-                            Likes=convertvaluetoint(likesonpage)
-                            commentonpage=spanslikes[1].text
-                            Comments=convertvaluetoint(commentonpage)
-                            temp={'Link':'https://www.instagram.com/p/'+href.split('/')[2],'Views':Views,'Likes':Likes,'Comments':Comments}
-                        except IndexError:
-                            temp={'Link':'https://www.instagram.com/p/'+href.split('/')[2],'Views':Views,'Likes':0,'Comments':0}
-                        unique2.append(temp)
-                        #print('Views= '+str(Views)+' '+'Likes= '+str(likesonpage)+' '+'Comments= '+str(commentonpage))
-            except KeyboardInterrupt:
-                flag=True
-                break
-            except Exception as error:
-                print(error)
-                time.sleep(5)
-                continue
-            else:
-                break
-        if flag==True:
-            break    
-        df = pd.DataFrame(unique2)
-        unique_df = df.drop_duplicates()
-        unique2 = unique_df.to_dict('records')
-        new_height = driver.execute_script("return document.body.scrollHeight")
-        if len(unique2)>=20:
-            break
-        elif new_height == last_height:
-            break
-        print('Total Unique '+str(len(unique2)))
-        last_height = new_height
-    df1 = pd.DataFrame(unique1)
-    df2 = pd.DataFrame(unique2)
-
-    # Merge DataFrames based on 'Link' column using left join
-    merged = pd.merge(left=df1, right=df2, how='left', on='Link')
-
-    # Fill NaN values in specific columns with 0
-    merged['Views'].fillna(0, inplace=True)
-    merged['Likes_y'].fillna(0, inplace=True)
-    merged['Comments_y'].fillna(0, inplace=True)
-
-    # Use .loc[] for getting and setting values to avoid SettingWithCopyWarning
-    merged.loc[merged['Likes_x'] <= merged['Likes_y'], 'Likes_x'] = merged.loc[merged['Likes_x'] <= merged['Likes_y'], 'Likes_y']
-    merged.loc[merged['Comments_x'] <= merged['Comments_y'], 'Comments_x'] = merged.loc[merged['Comments_x'] <= merged['Comments_y'], 'Comments_y']
-
-    # Drop unnecessary columns and rename columns
-    merged.drop(['Likes_y', 'Comments_y'], axis=1, inplace=True)
-    merged.rename(columns={'Likes_x': 'Likes', 'Comments_x': 'Comments'}, inplace=True)
-    Lists=merged.to_dict(orient='records')
-    
-    driver.quit()
-    chrome_options = Options()
-    chrome_options.add_argument("--headless")
-    chrome_options.add_argument(" --window-size=1920x1080")
-    chrome_options.add_argument(" --ignore-certificate-errors")
-    service = Service(executable_path = os.getcwd() +"/chromedriver")
-    #service = Service(chrome_drive)
-    print("loadiing chrome driver")
-    #driver = webdriver.Chrome(options=chrome_options)
-    driver = webdriver.Chrome(options=chrome_options,service=service)
-    i=0
-    for x in Lists:
-        j=0
-        while True:
-            try:
-                driver.get(x['Link'])
-                wait = WebDriverWait(driver, 10)# Iterate through the divs and find links within them
-                wait.until(EC.presence_of_element_located((By.XPATH, "//time[@class='_aaqe']")))
-                # Define the specific span class you want to target
-                page_source = driver.page_source
-                # Parse the page source with BeautifulSoup
-                soup = BeautifulSoup(page_source, 'html.parser')
-                # Find the divs with class 'main-page-wrapper'
-                divs = soup.find_all(class_='_aacl _aaco _aacu _aacx _aad7 _aade')
-                x['Caption'] = divs[0].text
-                pubs = soup.find_all(class_='_aaqe')
-                x['Published On']= pubs[0].get('datetime')
-            except KeyboardInterrupt:
-                flag=True
-                break
-            except Exception as error:
-                print(error)
-                print(x['Link'])
-                x['Caption'] = ''
-                x['Published On']= ''
-                time.sleep(5)
-                j=j+1
-                if j>=5:
+        try:
+            # Set the path to a new directory for user data
+            user_data_dir = os.path.join(os.getcwd(), 'my_selenium_data1')
+            # Create Chrome Options and set user data directory
+            chrome_options = Options()
+            chrome_options.add_argument(f"user-data-dir={user_data_dir}")
+            chrome_options.add_argument("--headless")
+            chrome_options.add_argument(" --window-size=1920x1080")
+            chrome_options.add_argument(" --ignore-certificate-errors")
+            service = Service(executable_path = os.getcwd() +"/chromedriver")
+            #service = Service(chrome_drive)
+            print("loadiing chrome driver")
+            #driver = webdriver.Chrome(options=chrome_options)
+            driver = webdriver.Chrome(options=chrome_options,service=service)
+            url = "https://google.com"
+            driver.get(url)
+            time.sleep(3)
+            driver.get(URL['Post'])
+            print('URL Visible: '+URL['Post'])
+            last_height = driver.execute_script("return document.body.scrollHeight")
+            unique1=[]
+            while True:
+                html_source = " "
+                i = 0
+        
+                # try to scroll 5 times in case of slow connection
+                while i < 5:
+        
+                    # Scroll down to one page length
+                    driver.execute_script("window.scrollBy(0, 1500);")
+        
+                    # Wait to load page
+                    time.sleep(SCROLL_PAUSE_TIME)
+                    # get page height in pixels
+                    new_height = driver.execute_script("return document.body.scrollHeight")
+        
+                    # break this loop when you are able to scroll further
+                    if new_height != last_height:
+                        break
+                    i += 1
+                flag=False
+                while True:
+                    try:
+                        page_source = driver.page_source
+                        #<span class="">10.6K</span>
+                        # Parse the page source with BeautifulSoup
+                        soup = BeautifulSoup(page_source, 'html.parser')
+        
+                        # Find the divs with class 'main-page-wrapper'
+                        divs = soup.select('div._aabd._aa8k._al3l')
+                        wait = WebDriverWait(driver, 10)# Iterate through the divs and find links within them
+                        for div in divs:
+                            temp = {}
+                            links = div.find_all('a')
+                            for a in links:
+                                href = a.get('href')
+                                #print(href)
+                                text_elements = a.find(class_="x5yr21d xu96u03 x10l6tqk x13vifvy x87ps6o xh8yej3").get('alt')
+                                x_path='//a[@href='+'"'+href+'"'+']'
+                                try:
+                                    t2= driver.find_element(By.XPATH,x_path)
+                                    actions = ActionChains(driver)
+                                    actions.move_to_element(t2).perform()
+                                    wait.until(EC.presence_of_element_located((By.XPATH, "//div[@class='_ac2d']")))
+                                    Class1= driver.find_element(By.XPATH, "//div[@class='_ac2d']")
+                                    Bulk_add3=Class1.find_elements(By.XPATH, ".//span[@class='html-span xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x1hl2dhg x16tdsg8 x1vvkbs']")
+                                    Likes=convertvaluetoint(Bulk_add3[0].text)
+                                    Comments=convertvaluetoint(Bulk_add3[1].text)
+                                    temp={'Link':'https://www.instagram.com/p/'+href.split('/')[2],'Likes':Likes,'Comments':Comments,'Alt Text':str(text_elements)}
+                                except:
+                                    temp={'Link':'https://www.instagram.com/p/'+href.split('/')[2],'Likes':0,'Comments':0,'Alt Text':str(text_elements)}
+                                #print(str(Likes)+' '+str(Comments))
+                                unique1.append(temp)
+                    except KeyboardInterrupt:
+                        flag=True
+                        break
+                    except Exception as error:
+                        print(error)
+                        time.sleep(5)
+                        continue
+                    else:
+                        break
+                if flag==True:
+                    break    
+                df = pd.DataFrame(unique1)
+                unique_df = df.drop_duplicates()
+                unique1 = unique_df.to_dict('records')
+                new_height = driver.execute_script("return document.body.scrollHeight")
+                if len(unique1)>=20:
                     break
-                else:
-                    driver.refresh()
-                    continue
-            else:
+                elif new_height == last_height:
+                    break
+                print('Total Unique '+str(len(unique1)))
+                last_height = new_height
+            if flag==True:
                 break
-        if flag==True:
+            time.sleep(3)
+            driver.get(URL['Reel'])
+            print('URL Visible: '+URL['Reel'])
+            last_height = driver.execute_script("return document.body.scrollHeight")
+            unique2=[]
+            while True:
+                html_source = " "
+                i = 0
+                # try to scroll 5 times in case of slow connection
+                while i < 5:
+                    # Scroll down to one page length
+                    driver.execute_script("window.scrollBy(0, 1500);")
+                    # Wait to load page
+                    time.sleep(SCROLL_PAUSE_TIME)
+                    # get page height in pixels
+                    new_height = driver.execute_script("return document.body.scrollHeight")
+        
+                    # break this loop when you are able to scroll further
+                    if new_height != last_height:
+                        break
+                    i += 1
+                flag=False
+                while True:
+                    try:
+                        # Get the page source after it has loaded
+                        page_source = driver.page_source
+        
+                        # Parse the page source with BeautifulSoup
+                        soup = BeautifulSoup(page_source, 'html.parser')
+        
+                        # Find the divs with class 'main-page-wrapper'
+                        divs = soup.find_all(class_='_aajw')
+        
+                        # Iterate through the divs and find links within them
+                        for div in divs:
+                            temp = {}
+                            links = div.find_all('a')
+                            for a in links:
+                                href = a.get('href')
+                                #print(href)
+                                spansviews = a.find_all('span', class_='x1lliihq x1plvlek xryxfnj x1n2onr6 x193iq5w xeuugli x1fj9vlw x13faqbe x1vvkbs x1s928wv xhkezso x1gmr53x x1cpjm7i x1fgarty x1943h6x x1i0vuye xl565be x1s688f x9bdzbf x1tu3fi x3x7a5m x10wh9bi x1wdrske x8viiok x18hxmgj')[0].text
+                                #print(spansviews)
+                                Views=convertvaluetoint(spansviews)
+                                try:
+                                    spanslikes = a.find_all('span', class_='x1lliihq x1plvlek xryxfnj x1n2onr6 x193iq5w xeuugli x1fj9vlw x13faqbe x1vvkbs x1s928wv xhkezso x1gmr53x x1cpjm7i x1fgarty x1943h6x x1i0vuye xl565be x1xlr1w8 x9bdzbf x10wh9bi x1wdrske x8viiok x18hxmgj')
+                                    likesonpage=spanslikes[0].text
+                                    Likes=convertvaluetoint(likesonpage)
+                                    commentonpage=spanslikes[1].text
+                                    Comments=convertvaluetoint(commentonpage)
+                                    temp={'Link':'https://www.instagram.com/p/'+href.split('/')[2],'Views':Views,'Likes':Likes,'Comments':Comments}
+                                except IndexError:
+                                    temp={'Link':'https://www.instagram.com/p/'+href.split('/')[2],'Views':Views,'Likes':0,'Comments':0}
+                                unique2.append(temp)
+                                #print('Views= '+str(Views)+' '+'Likes= '+str(likesonpage)+' '+'Comments= '+str(commentonpage))
+                    except KeyboardInterrupt:
+                        flag=True
+                        break
+                    except Exception as error:
+                        print(error)
+                        time.sleep(5)
+                        continue
+                    else:
+                        break
+                if flag==True:
+                    break    
+                df = pd.DataFrame(unique2)
+                unique_df = df.drop_duplicates()
+                unique2 = unique_df.to_dict('records')
+                new_height = driver.execute_script("return document.body.scrollHeight")
+                if len(unique2)>=20:
+                    break
+                elif new_height == last_height:
+                    break
+                print('Total Unique '+str(len(unique2)))
+                last_height = new_height
+            df1 = pd.DataFrame(unique1)
+            df2 = pd.DataFrame(unique2)
+        
+            # Merge DataFrames based on 'Link' column using left join
+            merged = pd.merge(left=df1, right=df2, how='left', on='Link')
+        
+            # Fill NaN values in specific columns with 0
+            merged['Views'].fillna(0, inplace=True)
+            merged['Likes_y'].fillna(0, inplace=True)
+            merged['Comments_y'].fillna(0, inplace=True)
+        
+            # Use .loc[] for getting and setting values to avoid SettingWithCopyWarning
+            merged.loc[merged['Likes_x'] <= merged['Likes_y'], 'Likes_x'] = merged.loc[merged['Likes_x'] <= merged['Likes_y'], 'Likes_y']
+            merged.loc[merged['Comments_x'] <= merged['Comments_y'], 'Comments_x'] = merged.loc[merged['Comments_x'] <= merged['Comments_y'], 'Comments_y']
+        
+            # Drop unnecessary columns and rename columns
+            merged.drop(['Likes_y', 'Comments_y'], axis=1, inplace=True)
+            merged.rename(columns={'Likes_x': 'Likes', 'Comments_x': 'Comments'}, inplace=True)
+            Lists=merged.to_dict(orient='records')
+            
+            driver.quit()
+            chrome_options = Options()
+            chrome_options.add_argument("--headless")
+            chrome_options.add_argument(" --window-size=1920x1080")
+            chrome_options.add_argument(" --ignore-certificate-errors")
+            service = Service(executable_path = os.getcwd() +"/chromedriver")
+            #service = Service(chrome_drive)
+            print("loadiing chrome driver")
+            #driver = webdriver.Chrome(options=chrome_options)
+            driver = webdriver.Chrome(options=chrome_options,service=service)
+            i=0
+            for x in Lists:
+                j=0
+                while True:
+                    try:
+                        driver.get(x['Link'])
+                        wait = WebDriverWait(driver, 10)# Iterate through the divs and find links within them
+                        wait.until(EC.presence_of_element_located((By.XPATH, "//time[@class='_aaqe']")))
+                        # Define the specific span class you want to target
+                        page_source = driver.page_source
+                        # Parse the page source with BeautifulSoup
+                        soup = BeautifulSoup(page_source, 'html.parser')
+                        # Find the divs with class 'main-page-wrapper'
+                        divs = soup.find_all(class_='_aacl _aaco _aacu _aacx _aad7 _aade')
+                        x['Caption'] = divs[0].text
+                        pubs = soup.find_all(class_='_aaqe')
+                        x['Published On']= pubs[0].get('datetime')
+                    except KeyboardInterrupt:
+                        flag=True
+                        break
+                    except Exception as error:
+                        print(error)
+                        print(x['Link'])
+                        x['Caption'] = ''
+                        x['Published On']= ''
+                        time.sleep(5)
+                        j=j+1
+                        if j>=5:
+                            break
+                        else:
+                            time.sleep(10)
+                            driver.refresh()
+                            continue
+                    else:
+                        break
+                if flag==True:
+                    break
+                i=i+1
+                if i % 30 == 0:
+                    print("Count: "+ str(i))
+            if flag==True:
+                break
+            i=0
+            tobeadded=[]
+            while True:
+                if i>=(len(Lists)):break
+                result_date = (datetime.strptime(str(date.today()), "%Y-%m-%d") - timedelta(days=1)).strftime('%Y-%m-%d')
+                if Lists[i]['Published On']=='': 
+                    i=i+1
+                    continue
+                timestamp_object = datetime.fromisoformat(Lists[i]['Published On'][:-1]).strftime('%Y-%m-%d')
+        
+                if result_date==timestamp_object:
+                    #print('Awesome'+' '+str(Lists[i]['Link']))
+                    tobeadded.append(Lists[i])
+                i=i+1
+            i=0
+            while True:
+                if i>=(len(tobeadded)): break
+                desired_order = ['Link', 'Caption', 'Views', 'Published On', 'Likes', 'Comments','Alt Text']
+                tobeadded[i] = {key: tobeadded[i][key] for key in desired_order}
+                i=i+1
+            print('Done')
+            insert_empty_row('1_bBS5vcGRRGxWsBz202ohIV5k7x0FNHAJ-2FYD9UTBY', URL['Name'], 1, 1+len(tobeadded))
+            Top_left='A2'
+            worksheet_update(tobeadded,'1_bBS5vcGRRGxWsBz202ohIV5k7x0FNHAJ-2FYD9UTBY',URL['Name'],Top_left)
+            driver.quit()
+            time.sleep(3)
+        except Exception as error:
+            print(error)
+            driver.quit()
+            k=k+1
+            if k>=3:
+                print('not added for: '+ URL['Name'])
+                break
+            else:
+                time.sleep(10)
+                continue
+        else:
             break
-        i=i+1
-        if i % 30 == 0:
-            print("Count: "+ str(i))
-    if flag==True:
-        break
-    i=0
-    tobeadded=[]
-    while True:
-        if i>=(len(Lists)):break
-        result_date = (datetime.strptime(str(date.today()), "%Y-%m-%d") - timedelta(days=1)).strftime('%Y-%m-%d')
-        if Lists[i]['Published On']=='': 
-            i=i+1
-            continue
-        timestamp_object = datetime.fromisoformat(Lists[i]['Published On'][:-1]).strftime('%Y-%m-%d')
-
-        if result_date==timestamp_object:
-            #print('Awesome'+' '+str(Lists[i]['Link']))
-            tobeadded.append(Lists[i])
-        i=i+1
-    i=0
-    while True:
-        if i>=(len(tobeadded)): break
-        desired_order = ['Link', 'Caption', 'Views', 'Published On', 'Likes', 'Comments','Alt Text']
-        tobeadded[i] = {key: tobeadded[i][key] for key in desired_order}
-        i=i+1
-    print('Done')
-    insert_empty_row('1_bBS5vcGRRGxWsBz202ohIV5k7x0FNHAJ-2FYD9UTBY', URL['Name'], 1, 1+len(tobeadded))
-    Top_left='A2'
-    worksheet_update(tobeadded,'1_bBS5vcGRRGxWsBz202ohIV5k7x0FNHAJ-2FYD9UTBY',URL['Name'],Top_left)
-    driver.quit()
-    time.sleep(3)
