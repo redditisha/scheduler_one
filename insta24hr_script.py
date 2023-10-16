@@ -427,7 +427,7 @@ for URL in URL_List:
             print(error)
             driver.quit()
             k=k+1
-            if k>=3:
+            if k>=5:
                 print('not added for: '+ URL['Name'])
                 break
             else:
