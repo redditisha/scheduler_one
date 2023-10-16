@@ -289,7 +289,7 @@ for URL in URL_List:
                             links = div.find_all('a')
                             for a in links:
                                 href = a.get('href')
-                                #print(href)
+                                print(href)
                                 spansviews = a.find_all('span', class_='x1lliihq x1plvlek xryxfnj x1n2onr6 x193iq5w xeuugli x1fj9vlw x13faqbe x1vvkbs x1s928wv xhkezso x1gmr53x x1cpjm7i x1fgarty x1943h6x x1i0vuye xl565be x1s688f x9bdzbf x1tu3fi x3x7a5m x10wh9bi x1wdrske x8viiok x18hxmgj')[0].text
                                 #print(spansviews)
                                 Views=convertvaluetoint(spansviews)
@@ -303,7 +303,7 @@ for URL in URL_List:
                                 except IndexError:
                                     temp={'Link':'https://www.instagram.com/p/'+href.split('/')[2],'Views':Views,'Likes':0,'Comments':0}
                                 unique2.append(temp)
-                                #print('Views= '+str(Views)+' '+'Likes= '+str(likesonpage)+' '+'Comments= '+str(commentonpage))
+                                print('Views= '+str(Views)+' '+'Likes= '+str(likesonpage)+' '+'Comments= '+str(commentonpage))
                     except KeyboardInterrupt:
                         flag=True
                         break
