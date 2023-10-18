@@ -1,19 +1,28 @@
-[8581:8581:1013/091348.110567:WARNING:chrome_main_delegate.cc(594)] This is Chrome version 115.0.5790.102 (not a warning)
-[8581:8581:1013/091348.183143:INFO:chrome_browser_cloud_management_controller.cc(167)] Starting CBCM Controller Initialization
-[8581:8581:1013/091348.183162:INFO:chrome_browser_cloud_management_controller.cc(195)] No machine level policy manager exists.
-[8628:7:1013/091348.190397:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
-[8623:8623:1013/091348.226729:WARNING:sandbox_linux.cc(393)] InitializeSandbox() called with multiple threads in process gpu-process.
-[8623:8623:1013/091348.228528:WARNING:gpu_memory_buffer_support_x11.cc(49)] dri3 extension not supported.
-[8674:13:1013/091348.237980:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
-[8677:14:1013/091348.243616:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
-[8581:8581:1013/091348.250175:WARNING:bluez_dbus_manager.cc(247)] Floss manager not present, cannot set Floss enable/disable.
-[8581:8581:1013/091348.250394:ERROR:object_proxy.cc(590)] Failed to call method: org.freedesktop.portal.Settings.Read: object_path= /org/freedesktop/portal/desktop: org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.portal.Desktop was not provided by any .service files
-[8700:33:1013/091348.382103:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
-[8712:42:1013/091348.543109:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
-[8719:47:1013/091348.618111:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
-[8729:52:1013/091354.528665:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
-[8581:8581:1013/091355.120729:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'ambient-light-sensor'.", source:  (0)
-[8581:8581:1013/091355.120765:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'bluetooth'.", source:  (0)
-[8626:8642:1013/091357.558184:WARNING:sqlite_persistent_store_backend_base.cc(190)] Failed to post task from FlushAndNotifyInBackground@net/extras/sqlite/sqlite_persistent_store_backend_base.cc:238 to client_task_runner_.
-[8626:8642:1013/091357.558292:WARNING:sqlite_persistent_store_backend_base.cc(190)] Failed to post task from FlushAndNotifyInBackground@net/extras/sqlite/sqlite_persistent_store_backend_base.cc:238 to client_task_runner_.
-[8581:8581:1013/091357.565936:WARNING:pref_notifier_impl.cc(41)] Pref observer for media_router.cast_allow_all_ips found at shutdown.
+[16639:16639:1018/091954.580822:WARNING:chrome_main_delegate.cc(594)] This is Chrome version 115.0.5790.102 (not a warning)
+[16639:16639:1018/091954.827938:INFO:chrome_browser_cloud_management_controller.cc(167)] Starting CBCM Controller Initialization
+[16639:16639:1018/091954.840711:INFO:chrome_browser_cloud_management_controller.cc(195)] No machine level policy manager exists.
+[16687:7:1018/091954.871594:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
+[16681:16681:1018/091954.964314:WARNING:sandbox_linux.cc(393)] InitializeSandbox() called with multiple threads in process gpu-process.
+[16681:16681:1018/091954.979958:WARNING:gpu_memory_buffer_support_x11.cc(49)] dri3 extension not supported.
+[16723:13:1018/091955.134155:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
+[16726:14:1018/091955.154314:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
+[16639:16639:1018/091955.284138:WARNING:bluez_dbus_manager.cc(247)] Floss manager not present, cannot set Floss enable/disable.
+[16639:16639:1018/091955.300073:ERROR:object_proxy.cc(590)] Failed to call method: org.freedesktop.portal.Settings.Read: object_path= /org/freedesktop/portal/desktop: org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.portal.Desktop was not provided by any .service files
+[16726:29:1018/091955.722894:ERROR:command_buffer_proxy_impl.cc(128)] ContextResult::kTransientFailure: Failed to send GpuControl.CreateCommandBuffer.
+[16753:31:1018/091956.625073:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
+[16764:40:1018/091956.739813:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
+[16776:50:1018/091956.947669:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
+[16791:56:1018/091957.047721:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
+[16848:62:1018/091958.381238:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
+[16639:16639:1018/091959.428313:INFO:CONSOLE(6586)] "crbug/1173575, non-JS module files deprecated.", source: chrome-error://chromewebdata/ (6586)
+[17071:71:1018/092003.938350:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
+[16639:16639:1018/092004.501144:INFO:CONSOLE(1)] "Uncaught NetworkError: Failed to execute 'importScripts' on 'WorkerGlobalScope': The script at 'https://abs.twimg.com/responsive-web/client-serviceworker/serviceworker.56c0036a.js' failed to load.", source: https://twitter.com/sw.js (1)
+[16639:16639:1018/092004.501865:INFO:CONSOLE(0)] "An unknown error occurred when fetching the script.", source:  (0)
+[16639:16639:1018/092014.599322:WARNING:controller_impl.cc(1188)] Background download complete, client: 6, completion type: 0, file size:265059
+[17122:82:1018/092014.620840:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
+[16639:16639:1018/092014.924937:WARNING:controller_impl.cc(1188)] Background download complete, client: 6, completion type: 0, file size:5091
+[17132:88:1018/092014.939493:WARNING:crashpad_client_linux.cc(364)] prctl: Invalid argument (22)
+[16639:16639:1018/092016.588860:WARNING:controller_impl.cc(1188)] Background download complete, client: 6, completion type: 1, file size:0
+[16685:16696:1018/092016.821004:WARNING:sqlite_persistent_store_backend_base.cc(190)] Failed to post task from FlushAndNotifyInBackground@net/extras/sqlite/sqlite_persistent_store_backend_base.cc:238 to client_task_runner_.
+[16685:16696:1018/092016.821226:WARNING:sqlite_persistent_store_backend_base.cc(190)] Failed to post task from FlushAndNotifyInBackground@net/extras/sqlite/sqlite_persistent_store_backend_base.cc:238 to client_task_runner_.
+[16639:16639:1018/092016.859381:WARNING:pref_notifier_impl.cc(41)] Pref observer for media_router.cast_allow_all_ips found at shutdown.

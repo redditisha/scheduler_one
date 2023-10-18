@@ -1,3 +1,3 @@
-2023/10/13-09:13:48.198 219e Reusing MANIFEST /home/kali/expermiment-projects/scheduler_one/my_selenium_data1/Default/Sync Data/LevelDB/MANIFEST-000001
-2023/10/13-09:13:48.199 219e Recovering log #3
-2023/10/13-09:13:48.199 219e Reusing old log /home/kali/expermiment-projects/scheduler_one/my_selenium_data1/Default/Sync Data/LevelDB/000003.log 
+2023/10/18-09:19:54.905 4118 Reusing MANIFEST /home/kali/expermiment-projects/scheduler_one/my_selenium_data1/Default/Sync Data/LevelDB/MANIFEST-000001
+2023/10/18-09:19:54.907 4118 Recovering log #3
+2023/10/18-09:19:54.907 4118 Reusing old log /home/kali/expermiment-projects/scheduler_one/my_selenium_data1/Default/Sync Data/LevelDB/000003.log 
