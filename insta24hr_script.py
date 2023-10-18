@@ -375,6 +375,7 @@ for URL in URL_List:
                         x['Caption'] = divs[0].text
                         pubs = soup.find_all(class_='_aaqe')
                         x['Published On']= pubs[0].get('datetime')
+                        time.sleep(5)
                     except KeyboardInterrupt:
                         flag=True
                         break
@@ -383,9 +384,8 @@ for URL in URL_List:
                         print(x['Link'])
                         x['Caption'] = ''
                         x['Published On']= ''
-                        time.sleep(5)
                         j=j+1
-                        if j>=5:
+                        if j>=2:
                             break
                         else:
                             time.sleep(10)
@@ -430,7 +430,7 @@ for URL in URL_List:
             print(error)
             driver.quit()
             k=k+1
-            if k>=5:
+            if k>=2:
                 print('not added for: '+ URL['Name'])
                 break
             else:
