@@ -349,15 +349,15 @@ for URL in URL_List:
             Lists=merged.to_dict(orient='records')
             
             driver.quit()
-            chrome_options = Options()
-            chrome_options.add_argument("--headless")
-            chrome_options.add_argument(" --window-size=1920x1080")
-            chrome_options.add_argument(" --ignore-certificate-errors")
+            chrome_options1 = Options()
+            chrome_options1.add_argument("--headless")
+            chrome_options1.add_argument(" --window-size=1920x1080")
+            chrome_options1.add_argument(" --ignore-certificate-errors")
             service = Service(executable_path = os.getcwd() +"/chromedriver")
             #service = Service(chrome_drive)
             print("loadiing chrome driver")
-            #driver = webdriver.Chrome(options=chrome_options)
-            driver = webdriver.Chrome(options=chrome_options,service=service)
+            #driver = webdriver.Chrome(options=chrome_options1)
+            driver = webdriver.Chrome(options=chrome_options1,service=service)
             i=0
             for x in Lists:
                 j=0
