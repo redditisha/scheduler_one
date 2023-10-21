@@ -2,7 +2,7 @@ name: Insta24hr Batch 1
 
 on:
   schedule:
-    - cron: "*/10 * * * *"
+    - cron: "*/15 * * * *"
 
 jobs:
   run_code:
