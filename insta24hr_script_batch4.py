@@ -430,7 +430,7 @@ for URL in URL_List:
             worksheetx = gcx.open_by_key('1_bBS5vcGRRGxWsBz202ohIV5k7x0FNHAJ-2FYD9UTBY').worksheet(URL['Name'])
             data = worksheetx.get_all_values()
             dfsheet = pd.DataFrame(data[1:], columns=data[0])  # Assumes the first row contains column names
-            dfsheet = df.drop_duplicates(subset='Link')
+            dfsheet = dfsheet.drop_duplicates(subset='Link')
             worksheetx.clear()
             header = list(dfsheet.columns)
             values = dfsheet.values.tolist()
