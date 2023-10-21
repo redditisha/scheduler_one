@@ -349,7 +349,7 @@ for URL in URL_List:
             merged.drop(['Likes_y', 'Comments_y'], axis=1, inplace=True)
             merged.rename(columns={'Likes_x': 'Likes', 'Comments_x': 'Comments'}, inplace=True)
             Lists=merged.to_dict(orient='records')
-            
+            print(Lists[0])
             driver.quit()
             chrome_options1 = Options()
             chrome_options1.add_argument("--headless")
@@ -403,6 +403,7 @@ for URL in URL_List:
             if flag==True:
                 break
             i=0
+            print(Lists[0])
             tobeadded=[]
             while True:
                 if i>=(len(Lists)):break
