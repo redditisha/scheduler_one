@@ -424,6 +424,15 @@ for URL in URL_List:
             insert_empty_row('1_bBS5vcGRRGxWsBz202ohIV5k7x0FNHAJ-2FYD9UTBY', URL['Name'], 1, 1+len(tobeadded))
             Top_left='A2'
             worksheet_update(tobeadded,'1_bBS5vcGRRGxWsBz202ohIV5k7x0FNHAJ-2FYD9UTBY',URL['Name'],Top_left)
+            gcx = gspread.service_account_from_dict(credens)
+            worksheetx = gcx.open_by_key('1_bBS5vcGRRGxWsBz202ohIV5k7x0FNHAJ-2FYD9UTBY').worksheet(URL['Name'])
+            data = worksheetx.get_all_values()
+            dfsheet = pd.DataFrame(data[1:], columns=data[0])  # Assumes the first row contains column names
+            dfsheet = df.drop_duplicates(subset='Link')
+            worksheetx.clear()
+            header = list(dfsheet.columns)
+            values = dfsheet.values.tolist()
+            worksheet.insert_rows([header] + values, 1)
             driver.quit()
             time.sleep(3)
         except Exception as error:
