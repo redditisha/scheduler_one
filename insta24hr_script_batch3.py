@@ -434,7 +434,7 @@ for URL in URL_List:
             worksheetx.clear()
             header = list(dfsheet.columns)
             values = dfsheet.values.tolist()
-            worksheet.insert_rows([header] + values, 1)
+            worksheetx.insert_rows([header] + values, 1)
             driver.quit()
             time.sleep(3)
         except Exception as error:
