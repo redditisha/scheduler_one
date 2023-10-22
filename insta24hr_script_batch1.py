@@ -156,8 +156,10 @@ for URL in URL_List:
     while True:
         try:
             # Set the path to a new directory for user data
-            if k>=2:
+            if k>=1:
                 user_data_dir = os.path.join(os.getcwd(), 'my_selenium_data1')
+            elif k>=2:
+                user_data_dir = os.path.join(os.getcwd(), 'my_selenium_data3')
             else:
                 user_data_dir = os.path.join(os.getcwd(), 'my_selenium_data_spare22access')
             # Create Chrome Options and set user data directory
