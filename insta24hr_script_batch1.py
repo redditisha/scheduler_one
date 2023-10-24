@@ -393,8 +393,9 @@ for URL in URL_List:
                         if j>=2:
                             break
                         else:
+                            driver.quit()
+                            driver = webdriver.Chrome(options=chrome_options1,service=service)
                             time.sleep(10)
-                            driver.refresh()
                             continue
                     else:
                         break
