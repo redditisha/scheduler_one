@@ -101,11 +101,12 @@ def dataprocessing(data_frame):
     data_frame[numeric_cols] = data_frame[numeric_cols].apply(pd.to_numeric, errors='coerce', axis=1)
     data_frame['publishedAt'] = data_frame['publishedAt'].apply(lambda x: parser.parse(x))
     data_frame['pushblishDayName'] = data_frame['publishedAt'].apply(lambda x: x.strftime("%A"))
-    data_frame['durationSecs'] = data_frame['duration'].apply(lambda x: isodate.parse_duration(x))
-    data_frame['durationSecs'] = data_frame['durationSecs'].astype('timedelta64[s]')
+    data_frame['durationSecs'] = data_frame['duration'].apply(lambda x: isodate.parse_duration(x).total_seconds())
+    data_frame['durationSecs'] = pd.to_timedelta(data_frame['durationSecs'], unit='s')  # Convert seconds to timedelta
     data_frame['tagCount'] = data_frame['tags'].apply(lambda x: 0 if x is None else len(x))
     data_frame['description'] = data_frame['description'].str.replace('\n', ' ')
     return data_frame
+
 def get_video_details(youtube, video_ids):
     all_video_info = []
     
