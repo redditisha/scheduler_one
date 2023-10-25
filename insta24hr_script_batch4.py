@@ -435,7 +435,7 @@ for URL in URL_List:
             dfsheet = pd.DataFrame(data[1:], columns=data[0])  # Assumes the first row contains column names
             dfsheet = dfsheet.drop_duplicates(subset='Link')
             worksheetx.clear()
-            header = list(dfsheet.columns)
+            header = ['Link', 'Caption', 'Views', 'Published On', 'Likes', 'Comments','Alt Text']
             values = dfsheet.values.tolist()
             worksheetx.insert_rows([header] + values, 1)
             driver.quit()
