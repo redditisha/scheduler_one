@@ -1,0 +1,30 @@
+name: YouTube 24 Hours
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+
+jobs:
+  run_code:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x # Specify your desired Python version
+
+      - name: Install Dependencies
+        run: |
+          pip install google-api-python-client google-auth-httplib2 google-auth-oauthlib pandas ipython isodate gspread numpy
+
+
+      - name: Download Python Script
+        run: |
+          curl -o my_script.py https://raw.githubusercontent.com/redditisha/scheduler_one/main/24hour_YT.py
+          echo "Done"
+      - name: Run Your Python Script
+        run: python my_script.py
