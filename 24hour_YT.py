@@ -173,7 +173,7 @@ def worksheet_update(Channel_Details,sheet_id,worksheet_num,Top_left):
                 Item[i][j] = ', '.join(val)  # Convert the list of tags to a comma-separated string
             elif isinstance(val, pd.Timestamp):
                 Item[i][j] = val.strftime('%Y-%m-%d %H:%M:%S')
-    worksheet.update(str(Top_Left_Index+':'+Bottom_Right_Index), Item)
+    worksheet.update(range_name=str(Top_Left_Index+':'+Bottom_Right_Index), values=Item)
 def next_letter(letter,steps):
     ascii_value = ord(letter)
     new_ascii_value = ascii_value + (int(steps)-1)
