@@ -295,5 +295,5 @@ while j<len(video_total_df):
     values = dfsheet.values.tolist()
     worksheetx.insert_rows([header] + values, 1)
     print('Added to the sheet: '+channel_details[j]['Name'])
-    time.sleep(3)
+    time.sleep(15)
     j=j+1
