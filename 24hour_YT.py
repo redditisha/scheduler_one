@@ -282,6 +282,10 @@ while j<len(video_total_df):
     for d in video_total_df[j]:
         for key in keys_to_remove:
             d.pop(key, None)
+    for video_dict in video_total_df[j]:
+        for key in video_dict:
+            if pd.isna(video_dict[key]):
+                video_dict[key] = 0
     insert_empty_row('1A91g9ZLMDCZniNjslw85XiaRXC8OEPpLHM5NLeRwpXA', channel_details[j]['Name'], 1, 1+len(video_total_df[j]))
     Top_left='A2'
     worksheet_update(video_total_df[j],'1A91g9ZLMDCZniNjslw85XiaRXC8OEPpLHM5NLeRwpXA',channel_details[j]['Name'],Top_left)
