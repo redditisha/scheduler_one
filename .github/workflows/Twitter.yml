@@ -2,7 +2,7 @@ name: Twitter
 
 on:
   schedule:
-    - cron: "0 */3 * * *" # Runs at 5:00 PM UTC on Monday through Thursday
+    - cron: "*/5 * * *" # Runs at 5:00 PM UTC on Monday through Thursday
 
 jobs:
   run_code:
@@ -46,7 +46,7 @@ jobs:
           echo "Done"
           wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/119.0.6045.105/linux64/chromedriver-linux64.zip
           unzip chromedriver-linux64.zip
-          mv "$(dirname "$0")/chromedriver-linux64/chromedriver-linux64/chromedriver" ./chromedriver
+          mv "$(dirname "$0")/chromedriver-linux64/chromedriver" ./chromedriver
           echo "Done"
       - name: Run Your Python Script
         run: python my_script.py
