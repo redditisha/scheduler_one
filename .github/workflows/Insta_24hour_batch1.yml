@@ -48,7 +48,7 @@ jobs:
           echo "Done"
           wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/119.0.6045.105/linux64/chromedriver-linux64.zip
           unzip chromedriver-linux64.zip
-          mv "$(dirname "$0")/chromedriver-linux64/chromedriver-linux64/chromedriver" ./chromedriver
+          mv **/chromedriver ./chromedriver
           echo "Done"
           
       - name: Run Your Python Script
