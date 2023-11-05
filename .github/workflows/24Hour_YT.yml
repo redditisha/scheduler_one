@@ -2,7 +2,7 @@ name: YouTube 24 Hours
 
 on:
   schedule:
-    - cron: "* */8 * * *"
+    - cron: "0 */6 * * *"
 
 jobs:
   run_code:
