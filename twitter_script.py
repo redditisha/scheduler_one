@@ -244,7 +244,7 @@ for location in locations:
                 action.move_to_element(elementin).click().perform()
             time.sleep(5)
             driver.get("https://twitter.com/explore/tabs/trending")
-            time.sleep(3)
+            time.sleep(5)
             wait = WebDriverWait(driver, 20)
             wait.until(EC.presence_of_element_located((By.XPATH, "//div[@class='css-901oao r-18jsvk2 r-37j5jr r-a023e6 r-b88u0q r-rjixqe r-1bymd8e r-bcqeeo r-qvutc0']")))
             driver.execute_script("window.scrollBy(0, 800);")
@@ -338,7 +338,7 @@ for location in locations:
                 break
             else:
                 driver.quit()
-                driver = webdriver.Chrome(options=chrome_options,service=service)
+                driver = webdriver.Chrome(options=chrome_options, service=service)
                 time.sleep(10)
                 continue
         else:
