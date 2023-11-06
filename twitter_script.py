@@ -149,6 +149,7 @@ locations=['India','US','UK','Russia','France','Brazil','Portugal', 'Spain', 'It
 empty_row(2, 32, 0, '19Feu-nZlE2R5Boe2mdelYoSj5eAAQWHR84LdtoEBWZk')
 flag=False
 for location in locations:
+    k=0
     while True:
         try:
             driver.get('https://twitter.com/settings/explore/location')
@@ -332,8 +333,14 @@ for location in locations:
             break
         except Exception as error:
             print(error)
-            time.sleep(5)
-            continue
+            k=k+1
+            if k>=2:
+                break
+            else:
+                driver.quit()
+                driver = webdriver.Chrome(options=chrome_options,service=service)
+                time.sleep(10)
+                continue
         else:
             break
     if flag==True:
