@@ -289,7 +289,7 @@ for URL in URL_List:
                         soup = BeautifulSoup(page_source, 'html.parser')
         
                         # Find the divs with class 'main-page-wrapper'
-                        divs = soup.find_all(class_='_aajw')
+                        divs = soup.find_all(class_='_abq3 _al5p')
         
                         # Iterate through the divs and find links within them
                         for div in divs:
