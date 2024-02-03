@@ -2,7 +2,7 @@ name: Twitter
 
 on:
   schedule:
-    - cron: "0 */6 * * *" # Runs at 5:00 PM UTC on Monday through Thursday
+    - cron: "*0 */6 * * *" # Runs at 5:00 PM UTC on Monday through Thursday
 
 jobs:
   run_code:
