@@ -133,18 +133,19 @@ URL_List=[
 #{'Name':'Russian','Post':'https://www.instagram.com/sadhguru.russian/','Reel':'https://www.instagram.com/sadhguru.russian/reels/'},
 #{'Name':'French','Post':'https://www.instagram.com/sadhguru.francais/','Reel':'https://www.instagram.com/sadhguru.francais/reels/'},
 #{'Name':'German','Post':'https://www.instagram.com/sadhguru.deutsch/','Reel':'https://www.instagram.com/sadhguru.deutsch/reels/'},
-{'Name':'Portuguese','Post':'https://www.instagram.com/sadhguru_portugues/','Reel':'https://www.instagram.com/sadhguru_portugues/reels/'},
-{'Name':'Italian','Post':'https://www.instagram.com/sadhguru.italiano.ufficiale/','Reel':'https://www.instagram.com/sadhguru.italiano.ufficiale/reels/'},
-{'Name':'Indonesian','Post':'https://www.instagram.com/sadhgurubahasaindonesia/','Reel':'https://www.instagram.com/sadhgurubahasaindonesia/reels/'},
-{'Name':'Arabic','Post':'https://www.instagram.com/sadhguru.arabic/','Reel':'https://www.instagram.com/sadhguru.arabic/reels/'},
-{'Name':'Koreyan','Post':'https://www.instagram.com/sadhguru.korea/','Reel':'https://www.instagram.com/sadhguru.korea/reels/'},
+#{'Name':'Portuguese','Post':'https://www.instagram.com/sadhguru_portugues/','Reel':'https://www.instagram.com/sadhguru_portugues/reels/'},
+#{'Name':'Italian','Post':'https://www.instagram.com/sadhguru.italiano.ufficiale/','Reel':'https://www.instagram.com/sadhguru.italiano.ufficiale/reels/'},
+#{'Name':'Indonesian','Post':'https://www.instagram.com/sadhgurubahasaindonesia/','Reel':'https://www.instagram.com/sadhgurubahasaindonesia/reels/'},
+#{'Name':'Arabic','Post':'https://www.instagram.com/sadhguru.arabic/','Reel':'https://www.instagram.com/sadhguru.arabic/reels/'},
+#{'Name':'Koreyan','Post':'https://www.instagram.com/sadhguru.korea/','Reel':'https://www.instagram.com/sadhguru.korea/reels/'},
 #{'Name':'Romanian','Post':'https://www.instagram.com/sadhguru.romana/','Reel':'https://www.instagram.com/sadhguru.romana/reels/'},
 #{'Name':'Persian','Post':'https://www.instagram.com/sadhguru_persian/','Reel':'https://www.instagram.com/sadhguru_persian/reels/'},
 #{'Name':'T. Chinese','Post':'https://www.instagram.com/sadhguru.traditionalchinese/','Reel':'https://www.instagram.com/sadhguru.traditionalchinese/reels/'},
 #{'Name':'Hindi','Post':'https://www.instagram.com/sadhguru.hindiofficial/','Reel':'https://www.instagram.com/sadhguru.hindiofficial/reels/'},
 #{'Name':'Telugu','Post':'https://www.instagram.com/sadhgurutelugu/','Reel':'https://www.instagram.com/sadhgurutelugu/reels/'},
-#{'Name':'Kannada','Post':'https://www.instagram.com/sadhguru_kannada_official/','Reel':'https://www.instagram.com/sadhguru_kannada_official/reels/'},
-#{'Name':'Tamil','Post':'https://www.instagram.com/sadhgurutamil/','Reel':'https://www.instagram.com/sadhgurutamil/reels/'},
+{'Name':'Isha Foundation','Post':'https://www.instagram.com/isha.foundation/','Reel':'https://www.instagram.com/isha.foundation/reels/'},
+{'Name':'Kannada','Post':'https://www.instagram.com/sadhguru_kannada_official/','Reel':'https://www.instagram.com/sadhguru_kannada_official/reels/'},
+{'Name':'Tamil','Post':'https://www.instagram.com/sadhgurutamil/','Reel':'https://www.instagram.com/sadhgurutamil/reels/'},
 #{'Name':'Bangla','Post':'https://www.instagram.com/sadhguru.bangla/','Reel':'https://www.instagram.com/sadhguru.bangla/reels/'},
 #{'Name':'Malayalam','Post':'https://www.instagram.com/sadhguru.malayalam/','Reel':'https://www.instagram.com/sadhguru.malayalam/reels/'},
 #{'Name':'Marathi','Post':'https://www.instagram.com/sadhguru_marathi_official/','Reel':'https://www.instagram.com/sadhguru_marathi_official/reels/'},
@@ -155,6 +156,7 @@ for URL in URL_List:
     k=0
     while True:
         try:
+            # Set the path to a new directory for user data
             if k>=1:
                 user_data_dir = os.path.join(os.getcwd(), 'my_selenium_data1')
             elif k>=2:
@@ -209,7 +211,7 @@ for URL in URL_List:
                         soup = BeautifulSoup(page_source, 'html.parser')
         
                         # Find the divs with class 'main-page-wrapper'
-                        divs = soup.select('div._aabd._aa8k._al3l')
+                        divs = soup.select('div._aabd._aa8k.x2pgyrj.xbkimgs.xfllauq.xh8taat.xo2y696')
                         wait = WebDriverWait(driver, 10)# Iterate through the divs and find links within them
                         for div in divs:
                             temp = {}
@@ -288,27 +290,35 @@ for URL in URL_List:
                         soup = BeautifulSoup(page_source, 'html.parser')
         
                         # Find the divs with class 'main-page-wrapper'
-                        divs = soup.find_all(class_='_aajw')
+                        divs = soup.find_all(class_='x1qjc9v5 x972fbf xcfux6l x1qhh985 xm0m39n x9f619 x78zum5 xdt5ytf x2lah0s xln7xf2 xk390pu xdj266r xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x1n2onr6 x11njtxf xpzaatj xw3qccf')
         
                         # Iterate through the divs and find links within them
                         for div in divs:
                             temp = {}
                             links = div.find_all('a')
                             for a in links:
-                                href = a.get('href')
-                                #print(href)
-                                spansviews = a.find_all('span', class_='x1lliihq x1plvlek xryxfnj x1n2onr6 x193iq5w xeuugli x1fj9vlw x13faqbe x1vvkbs x1s928wv xhkezso x1gmr53x x1cpjm7i x1fgarty x1943h6x x1i0vuye xl565be x1s688f x9bdzbf x1tu3fi x3x7a5m x10wh9bi x1wdrske x8viiok x18hxmgj')[0].text
-                                #print(spansviews)
-                                Views=convertvaluetoint(spansviews)
                                 try:
-                                    spanslikes = a.find_all('span', class_='x1lliihq x1plvlek xryxfnj x1n2onr6 x193iq5w xeuugli x1fj9vlw x13faqbe x1vvkbs x1s928wv xhkezso x1gmr53x x1cpjm7i x1fgarty x1943h6x x1i0vuye xl565be x1xlr1w8 x9bdzbf x10wh9bi x1wdrske x8viiok x18hxmgj')
+                                    href = a.get('href')
+                                    #print(href)
+                                    spansviewsy = a.find_all('span', class_='x1lliihq x1plvlek xryxfnj x1n2onr6 x193iq5w xeuugli x1fj9vlw x13faqbe x1vvkbs x1s928wv xhkezso x1gmr53x x1cpjm7i x1fgarty x1943h6x x1i0vuye xl565be x1s688f x9bdzbf x1tu3fi x3x7a5m x10wh9bi x1wdrske x8viiok x18hxmgj')[0]
+                                    spansviews=spansviewsy.find('span', class_='html-span xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x1hl2dhg x16tdsg8 x1vvkbs').text
+                                    #print(spansviews)
+                                    Views=convertvaluetoint(spansviews)
+                                except:
+                                    href= ''
+                                    Views=0
+                                try:
+                                    spanslikes = a.find_all('span', class_='html-span xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x1hl2dhg x16tdsg8 x1vvkbs')
                                     likesonpage=spanslikes[0].text
                                     Likes=convertvaluetoint(likesonpage)
                                     commentonpage=spanslikes[1].text
                                     Comments=convertvaluetoint(commentonpage)
                                     temp={'Link':'https://www.instagram.com/p/'+href.split('/')[2],'Views':Views,'Likes':Likes,'Comments':Comments}
                                 except IndexError:
-                                    temp={'Link':'https://www.instagram.com/p/'+href.split('/')[2],'Views':Views,'Likes':0,'Comments':0}
+                                    if href=='':
+                                        temp={'Link':'https://www.instagram.com/p/','Views':Views,'Likes':0,'Comments':0}
+                                    else:
+                                        temp={'Link':'https://www.instagram.com/p/'+href.split('/')[2],'Views':Views,'Likes':0,'Comments':0}
                                 unique2.append(temp)
                                 print('Views= '+str(Views)+' '+'Likes= '+str(likesonpage)+' '+'Comments= '+str(commentonpage))
                     except KeyboardInterrupt:
@@ -375,7 +385,7 @@ for URL in URL_List:
                         # Parse the page source with BeautifulSoup
                         soup = BeautifulSoup(page_source, 'html.parser')
                         # Find the divs with class 'main-page-wrapper'
-                        divs = soup.find_all(class_='_aacl _aaco _aacu _aacx _aad7 _aade')
+                        divs = soup.find_all(class_='_ap3a _aaco _aacu _aacx _aad7 _aade')
                         x['Caption'] = divs[0].text
                         pubs = soup.find_all(class_='_aaqe')
                         x['Published On']= pubs[0].get('datetime')
