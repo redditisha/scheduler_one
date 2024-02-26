@@ -265,7 +265,7 @@ while i < len(Total):
             video_df = dataprocessing(video_df)
             video_total_df.append(video_df.to_dict(orient='records'))
         else:
-            print(Total[i]['channelName'])
+            print(Total[i]['channelName']+' Not')
             video_df=[{'video_id': '','URL': '','channelTitle': Total[i]['channelName'],'title': '','description': '','tags': [],'publishedAt': '','viewCount': '','likeCount': '','commentCount': '','duration': '','pushblishDayName': '','durationSecs': '','tagCount': ''}]
             video_total_df.append(video_df)
     except KeyboardInterrupt:
