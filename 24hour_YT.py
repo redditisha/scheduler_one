@@ -22,20 +22,20 @@ api_key = 'AIzaSyCchWLLWL152_h1pi7DU5ixBnGabjJ1bZY'
 #channel_ids for all SG Channels
 channel_details=[
 {'Name':'English','channelName': 'Sadhguru', 'channelId': 'UCcYzLCs3zrQIBVHYA1sK2sw'},
-{'Name':'Spanish','channelName': 'Sadhguru Español', 'channelId': 'UCJoOIj9Yu71wklP3EFzL8-A'},         
-{'Name':'Russian','channelName': 'Садхгуру — официальный канал на русском','channelId': 'UC057NSSVc2663UcpoZ0C6EQ'},
-{'Name':'French','channelName': 'Sadhguru Français', 'channelId': 'UCrmjX43WdTRI8RwVuRUACCw'},
-{'Name':'German','channelName': 'Sadhguru Deutsch', 'channelId': 'UCLXPrBVzL3sDRJ3HFDq3frw'},
-{'Name':'Italian','channelName': 'Sadhguru Italiano', 'channelId': 'UCVoo2xW_PFFpdkh9vjexLTg'},
-{'Name':'T. Chinese','channelName':'Sadhguru 繁體中文', 'channelId': 'UCSaNMML9AAXTN4142jD-dxw'},
-{'Name':'Simplified Chinese','channelName':'Sadhguru Chinese', 'channelId': 'UC5063zeNwwYYBbjYm1k6aXQ'},
+#{'Name':'Spanish','channelName': 'Sadhguru Español', 'channelId': 'UCJoOIj9Yu71wklP3EFzL8-A'},         
+#{'Name':'Russian','channelName': 'Садхгуру — официальный канал на русском','channelId': 'UC057NSSVc2663UcpoZ0C6EQ'},
+#{'Name':'French','channelName': 'Sadhguru Français', 'channelId': 'UCrmjX43WdTRI8RwVuRUACCw'},
+#{'Name':'German','channelName': 'Sadhguru Deutsch', 'channelId': 'UCLXPrBVzL3sDRJ3HFDq3frw'},
+#{'Name':'Italian','channelName': 'Sadhguru Italiano', 'channelId': 'UCVoo2xW_PFFpdkh9vjexLTg'},
+#{'Name':'T. Chinese','channelName':'Sadhguru 繁體中文', 'channelId': 'UCSaNMML9AAXTN4142jD-dxw'},
+#{'Name':'Simplified Chinese','channelName':'Sadhguru Chinese', 'channelId': 'UC5063zeNwwYYBbjYm1k6aXQ'},
 {'Name':'Hindi','channelName': 'Sadhguru Hindi', 'channelId': 'UCJ2KaH9TTjZdmKwwAFwwFkA'},
 {'Name':'Telugu','channelName': 'Sadhguru Telugu', 'channelId': 'UCNxOfQA4r5BSJMIQzRPIeQw'},
 {'Name':'Kannada','channelName': 'Sadhguru Kannada', 'channelId': 'UC2XEzs5R1mn2wTKgtjuMxiQ'},
 {'Name':'Tamil','channelName': 'Sadhguru Tamil', 'channelId': 'UCsVCyZFXPPL_iYD8-O2UvrQ'},
-{'Name':'Bangla','channelName': 'Sadhguru Bangla', 'channelId': 'UCj6F6irakw10kKGEe3wZX_A'},
-{'Name':'Malayalam','channelName': 'Sadhguru Malayalam','channelId': 'UCIAdGobptLFqTpbDauCnKhw'},
-{'Name':'Marathi','channelName': 'Sadhguru Marathi', 'channelId': 'UCIiXzyCf-PL3FHve7ylSCeA'},
+#{'Name':'Bangla','channelName': 'Sadhguru Bangla', 'channelId': 'UCj6F6irakw10kKGEe3wZX_A'},
+#{'Name':'Malayalam','channelName': 'Sadhguru Malayalam','channelId': 'UCIAdGobptLFqTpbDauCnKhw'},
+#{'Name':'Marathi','channelName': 'Sadhguru Marathi', 'channelId': 'UCIiXzyCf-PL3FHve7ylSCeA'},
 {'Name':'Isha Foundation','channelName': 'Isha Foundation', 'channelId': 'UCgaiWfiix1zaQS6Mn5SIw2g'}
 ]
 
