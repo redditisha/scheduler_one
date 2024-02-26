@@ -261,7 +261,7 @@ while i < len(Total):
         # Check if 'Final_vid' is not empty before processing
         if Total[i]['Final_vid']:
             video_df = get_video_details(youtube, Total[i]['Final_vid'])
-            print(Total[i]['channelName'])
+            print(Total[i]['channelName']+' Done')
             video_df = dataprocessing(video_df)
             video_total_df.append(video_df.to_dict(orient='records'))
         else:
