@@ -378,7 +378,7 @@ for URL in URL_List:
                     try:
                         driver.get(x['Link'])
                         wait = WebDriverWait(driver, 10)# Iterate through the divs and find links within them
-                        wait.until(EC.presence_of_element_located((By.XPATH, "//time[@class='_aaqe']")))
+                        wait.until(EC.presence_of_element_located((By.XPATH, "//time[@class='x1p4m5qa']")))
                         # Define the specific span class you want to target
                         page_source = driver.page_source
                         # Parse the page source with BeautifulSoup
@@ -386,7 +386,7 @@ for URL in URL_List:
                         # Find the divs with class 'main-page-wrapper'
                         divs = soup.find_all(class_='_ap3a _aaco _aacu _aacx _aad7 _aade')
                         x['Caption'] = divs[0].text
-                        pubs = soup.find_all(class_='_aaqe')
+                        pubs = soup.find_all(class_='x1p4m5qa')
                         x['Published On']= pubs[0].get('datetime')
                         time.sleep(5)
                     except KeyboardInterrupt:
