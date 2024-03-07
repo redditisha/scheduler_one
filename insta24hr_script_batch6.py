@@ -251,7 +251,7 @@ for URL in URL_List:
                 unique_df = df.drop_duplicates()
                 unique1 = unique_df.to_dict('records')
                 new_height = driver.execute_script("return document.body.scrollHeight")
-                if len(unique1)>=20:
+                if len(unique1)>=35:
                     break
                 elif new_height == last_height:
                     break
@@ -337,7 +337,7 @@ for URL in URL_List:
                 unique_df = df.drop_duplicates()
                 unique2 = unique_df.to_dict('records')
                 new_height = driver.execute_script("return document.body.scrollHeight")
-                if len(unique2)>=40:
+                if len(unique2)>=35:
                     break
                 elif new_height == last_height:
                     break
