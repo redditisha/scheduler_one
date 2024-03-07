@@ -1,0 +1,55 @@
+name: Insta24hr Batch 5
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+
+jobs:
+  run_code:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x # Specify your desired Python version
+
+      - name: Install Dependencies
+        run: |
+          pip install wait
+          pip install selenium
+          pip install beautifulsoup4
+          pip install ordered-set
+          pip install pandas
+          pip install numpy
+          pip install google-api-python-client
+          pip install isodate
+          pip install gspread
+          pip install ipython
+
+      - name: Install Google Chrome
+        run: |
+          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo dpkg -i google-chrome-stable_current_amd64.deb   
+          sudo apt-get install unzip
+
+      - name: Download Python Script
+        run: |
+          curl -o my_script.py https://raw.githubusercontent.com/redditisha/scheduler_one/main/insta24hr_script_batch5.py
+          curl -o Keys.json https://raw.githubusercontent.com/redditisha/scheduler_one/main/Keys.json
+          curl -LOk https://github.com/redditisha/scheduler_one/archive/refs/heads/main.zip
+          unzip -jo main.zip 'scheduler_one-main/my_selenium_data_spare22access/*'
+          unzip -jo main.zip 'scheduler_one-main/Code files/Selenium Stuff/my_selenium_data1/*' -d my_selenium_data3
+          unzip -jo main.zip 'scheduler_one-main/my_selenium_data1/*'
+          rm main.zip
+          echo "Done"
+          wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/121.0.6167.85/linux64/chromedriver-linux64.zip
+          unzip chromedriver-linux64.zip
+          mv **/chromedriver ./chromedriver
+          echo "Done"
+          
+      - name: Run Your Python Script
+        run: python my_script.py
