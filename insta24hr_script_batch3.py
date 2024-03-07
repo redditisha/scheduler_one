@@ -144,7 +144,7 @@ URL_List=[
 {'Name':'Hindi','Post':'https://www.instagram.com/sadhguru.hindiofficial/','Reel':'https://www.instagram.com/sadhguru.hindiofficial/reels/'},
 {'Name':'Telugu','Post':'https://www.instagram.com/sadhgurutelugu/','Reel':'https://www.instagram.com/sadhgurutelugu/reels/'},
 {'Name':'Kannada','Post':'https://www.instagram.com/sadhguru_kannada_official/','Reel':'https://www.instagram.com/sadhguru_kannada_official/reels/'},
-{'Name':'Tamil','Post':'https://www.instagram.com/sadhgurutamil/','Reel':'https://www.instagram.com/sadhgurutamil/reels/'},
+#{'Name':'Tamil','Post':'https://www.instagram.com/sadhgurutamil/','Reel':'https://www.instagram.com/sadhgurutamil/reels/'},
 #{'Name':'Bangla','Post':'https://www.instagram.com/sadhguru.bangla/','Reel':'https://www.instagram.com/sadhguru.bangla/reels/'},
 #{'Name':'Malayalam','Post':'https://www.instagram.com/sadhguru.malayalam/','Reel':'https://www.instagram.com/sadhguru.malayalam/reels/'},
 #{'Name':'Marathi','Post':'https://www.instagram.com/sadhguru_marathi_official/','Reel':'https://www.instagram.com/sadhguru_marathi_official/reels/'},
