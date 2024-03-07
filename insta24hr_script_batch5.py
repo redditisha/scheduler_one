@@ -148,7 +148,8 @@ URL_List=[
 {'Name':'Bangla','Post':'https://www.instagram.com/sadhguru.bangla/','Reel':'https://www.instagram.com/sadhguru.bangla/reels/'},
 {'Name':'Malayalam','Post':'https://www.instagram.com/sadhguru.malayalam/','Reel':'https://www.instagram.com/sadhguru.malayalam/reels/'},
 {'Name':'Marathi','Post':'https://www.instagram.com/sadhguru_marathi_official/','Reel':'https://www.instagram.com/sadhguru_marathi_official/reels/'},
-{'Name':'Gujarati','Post':'https://www.instagram.com/sadhguru.gujarati/','Reel':'https://www.instagram.com/sadhguru.gujarati/reels/'}
+{'Name':'Gujarati','Post':'https://www.instagram.com/sadhguru.gujarati/','Reel':'https://www.instagram.com/sadhguru.gujarati/reels/'},
+{'Name':'Isha Foundation','Post':'https://www.instagram.com/isha.foundation/','Reel':'https://www.instagram.com/isha.foundation/reels/'}
 ]
 
 for URL in URL_List:
