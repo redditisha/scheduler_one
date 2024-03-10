@@ -211,7 +211,7 @@ for URL in URL_List:
                         soup = BeautifulSoup(page_source, 'html.parser')
         
                         # Find the divs with class 'main-page-wrapper'
-                        divs = soup.select('div._aabd._aa8k.x2pgyrj.xbkimgs.xfllauq.xh8taat.xo2y696')
+                        divs = soup.select('div.x1lliihq.x1n2onr6.xh8yej3.x4gyw5p.x2pgyrj.xbkimgs.xfllauq.xh8taat.xo2y696')
                         wait = WebDriverWait(driver, 10)# Iterate through the divs and find links within them
                         for div in divs:
                             temp = {}
