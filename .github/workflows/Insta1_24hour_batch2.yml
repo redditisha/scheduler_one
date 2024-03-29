@@ -46,7 +46,7 @@ jobs:
           unzip -jo main.zip 'scheduler_one-main/my_selenium_data1/*'
           rm main.zip
           echo "Done"
-          wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/121.0.6167.85/linux64/chromedriver-linux64.zip
+          wget https://storage.googleapis.com/chrome-for-testing-public/123.0.6312.86/linux64/chromedriver-linux64.zip
           unzip chromedriver-linux64.zip
           mv **/chromedriver ./chromedriver
           echo "Done"
