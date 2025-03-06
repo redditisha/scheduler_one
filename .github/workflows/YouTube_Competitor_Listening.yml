@@ -2,7 +2,7 @@ name: YouTube Competitor Listening
 
 on:
   schedule:
-    - cron: "*/15 * * * *"
+    - cron: "*/15 * * * *"  # Runs every 15 minutes
 
 jobs:
   run_code:
@@ -10,21 +10,43 @@ jobs:
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v3
         with:
-          python-version: 3.x # Specify your desired Python version
+          python-version: "3.13"  # Specify your desired Python version
 
       - name: Install Dependencies
         run: |
           pip install google-api-python-client google-auth-httplib2 google-auth-oauthlib pandas ipython isodate gspread numpy python-dateutil
 
-
       - name: Download Python Script
         run: |
           curl -o my_script.py https://raw.githubusercontent.com/redditisha/scheduler_one/main/YouTube_Competitor_Listening.py
-          echo "Done"
+          echo "Script Downloaded"
+
+      - name: Debug Environment Variables
+        run: |
+          echo "Checking if environment variables are set"
+          if [[ -z "${GOOGLE_SHEETS_CREDENTIALS}" ]]; then
+            echo "ERROR: GOOGLE_SHEETS_CREDENTIALS is missing!"
+            exit 1
+          else
+            echo "GOOGLE_SHEETS_CREDENTIALS is set."
+          fi
+          if [[ -z "${YOUTUBE_API_KEY}" ]]; then
+            echo "ERROR: YOUTUBE_API_KEY is missing!"
+            exit 1
+          else
+            echo "YOUTUBE_API_KEY is set."
+          fi
+        env:
+          GOOGLE_SHEETS_CREDENTIALS: ${{ secrets.GOOGLE_SHEETS_CREDENTIALS }}
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+
       - name: Run Your Python Script
+        env:
+          GOOGLE_SHEETS_CREDENTIALS: ${{ secrets.GOOGLE_SHEETS_CREDENTIALS }}
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
         run: python my_script.py
