@@ -6,6 +6,7 @@ from IPython.display import JSON
 import numpy as np
 import re
 import os
+import json
 import isodate
 import datetime
 from datetime import date
@@ -16,23 +17,13 @@ import time
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
-#api_key = 'AIzaSyCchWLLWL152_h1pi7DU5ixBnGabjJ1bZY'
-api_key = 'AIzaSyDe9_exJUe14MhNvRFRq87YO8qDhVDjH5g'
-#api_key = 'AIzaSyDGbKANdoFihhBgSC_Gv0nskzheTIdEVl4'
 
-credens = {
-  "type": "service_account",
-  "project_id": "peak-plating-390111",
-  "private_key_id": "3847741ddfc81936fb911cbb9b4bbdacf0f35518",
-  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCQ0FyE8Au3NKSs\ngtJ+tT2bhRrvGHdnW6dCZDz4qv/fhGvA/yQOVxawJc79S6lbDKFa5n6ZK6aOoAvW\nPX/y3TqQHWgOBjIFEftAmNQKOoCuphnXSlIJw6EoeAg4dlx74Kkuhlb9IlyWqhBf\nl6VwItysuvAFmCWgQprh1s3fGySW/2z00YRyx20u1rUzf7OaLTaLQC7TPRVB6pHb\nQsGrkEJID8hDUSWanHs1RWqv/irK6eCO9q1odgO8VLmQKrHfl6nqZqB4HLBsP/PP\nU7c7rUGvSHxhtN3o34eYjVckbzKvmMhvqy/8On4YNtnmOeCcT3KfK6u58c6gRo1U\n5J9XIwDNAgMBAAECggEARhovp4UCzuHzk7VSy9bV54rUYokwCD9kpS2cHG6/JgdX\nGFsKq8x55bSv0ouFhNeE5tms0F5Cp0mP4VrtLPbuaiRqIlvaa/zr6bXx86+laqZq\n3P8T3rkus0YECL03gRpdG/IZezneo2rZOUVSZ4ng1Nc76SFhmYaUrp4LFCVyHYv3\nKGod2lkURm8M4tWAe3EFtV7KrJ0gB8pMKBUO0Km+n+Bcc8wxxvdsjRndqoF/hvYP\nm9n796W7l+CGwv0vQBaC3rHBIcFONUdWUEA1UWfD878TP+Sq82XYhDDYcH41tzie\n2WFoosySeqiw3lHiRIVtBfH2yqrvUROLl5lgedqhKwKBgQDJlentwQDV/z0q/rY4\ni87b6+BoSa+lPD+1HBEm9um6s+g6p5sKspZXqhWiv6+ZDyiHzHGFpooxBe6V0Weu\nu3qYTo/5ZazySkmUN7Qs4QcOkhNlz2BWmc4frASAdK9hVMBk3FT77yFcZ1kEPxOW\nIbVBANatbJNSH7gFWlaCrvMKiwKBgQC352CLSOu7cNpYYCwORXs2XEAVVHiDT/Ir\nn9rwDVCJo7Io1aObFq/IK/RTKXjSztaXp/Sc46QNs55AebnbFllxabUcO6NwPm0b\ncF7M8LxrXlmW3UcbTk2VNUeXAWuxyuyLmU5NrWVDLzFc5aCjxxbBA3nJfwZ1mEcA\nDjx3i/sFBwKBgHYQx6HomIS9qSW1aSRVPiKwVA7AmY89alK4zZL0qpAfLrSr1bK+\nRi+x/loDyuTqa+Kdax/MGsP7pXE55HACfhsWaFy5oEGIIPAeb/iZE3kFNTc77kDK\ndF84cKqLrOxkpwprwZqMxA1KumgySVZ1B6O6ygFoxiAjU7RO5LxFmzNhAoGAYy6N\nOfFU+V1O1NThTb0ZS2MLSLWq3R7zu6VV/ZsgsWqwfidiOhVNLkbOWT+HoyHcSCRT\n331CEAWsNpevrcHq8SiSfayIY9O3IlJDPoIjDEDxTlT+sXJUk0EN4BnrDBMl6c//\nlBMNBuPf2nsZXNrVobkPKKWyRR+gQx5qbAr5kWcCgYBn67d8dXlWmzGObo3zxRuU\nyI3ilcTOoNA2LjBBHfkXmSVPBNoAcAP5x/yfabplXLxnlJ7q12GL/Out43TEvX9U\nTkktFUSEDHw82HwijPRLuIZFqEAJBK6lgU5SHTjfHqx3l7tVoMMsg6WTqlGMlshp\nHsa1nziAuPGrBoJln4WPPQ==\n-----END PRIVATE KEY-----\n",
-  "client_email": "bot-bot-bot@peak-plating-390111.iam.gserviceaccount.com",
-  "client_id": "105770551819813021696",
-  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-  "token_uri": "https://oauth2.googleapis.com/token",
-  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/bot-bot-bot%40peak-plating-390111.iam.gserviceaccount.com",
-  "universe_domain": "googleapis.com"
-}
+api_key = os.getenv("YOUTUBE_API_KEY")
+
+google_sheets_credentials_json = os.getenv("GOOGLE_SHEETS_CREDENTIALS")
+
+# Convert JSON string to dictionary
+credens = json.loads(google_sheets_credentials_json)
 
 def empty_row():
     try:
