@@ -259,7 +259,7 @@ sheet_id = "1OkErK2H6kCxByp0S3YX-M1LeDyEuOHfnGh84NBiT1PE"
 worksheet_name = 'Competitor List'
 dfchannel = read_gsheet_to_df(sheet_id, worksheet_name, credens)
 #df.head()
-dfchannel_dict = dfchannel.to_dict(orient='records')[:3]
+dfchannel_dict = dfchannel.to_dict(orient='records')
 #dfchannel.head(2)
 #Get Existing Data on Sheet, from Masters Tab
 sheet_id = "1OkErK2H6kCxByp0S3YX-M1LeDyEuOHfnGh84NBiT1PE"
