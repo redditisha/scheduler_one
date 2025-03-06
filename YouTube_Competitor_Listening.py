@@ -224,26 +224,27 @@ def clear_worksheet(sheet_id, worksheet_num):
     worksheet = sheets.get_worksheet(int(worksheet_num))  # Get the worksheet
 
     worksheet.clear()
-def read_gsheet_to_df(sheet_id, worksheet_num, credens):
+def read_gsheet_to_df(sheet_id, worksheet_name, credens):
     """
-    Reads a Google Sheet and returns a Pandas DataFrame.
+    Reads a Google Sheet worksheet by name and returns a Pandas DataFrame.
     
     :param sheet_id: The ID of the Google Sheet.
-    :param worksheet_num: The index of the worksheet (starting from 0).
+    :param worksheet_name: The name of the worksheet (tab name).
+    :param credens: The Google Sheets service account credentials as a dictionary.
     :return: Pandas DataFrame containing the sheet data.
     """
-    # Load credentia
-    
     # Authenticate with gspread
     gc = gspread.service_account_from_dict(credens)
-    
+
     # Open the Google Sheet
     sheet = gc.open_by_key(sheet_id)
-    worksheet = sheet.get_worksheet(worksheet_num)
-    
+
+    # Get the worksheet by name instead of index
+    worksheet = sheet.worksheet(worksheet_name)
+
     # Get all data from the worksheet
     data = worksheet.get_all_values()
-    
+
     # Convert to DataFrame
     df = pd.DataFrame(data[1:], columns=data[0])  # First row as column names
     
@@ -255,15 +256,15 @@ api_version = "v3"
 youtube = build(api_service_name, api_version, developerKey=api_key)
 #Get Competitor's Details from Sheet, from Competitors Tab
 sheet_id = "1OkErK2H6kCxByp0S3YX-M1LeDyEuOHfnGh84NBiT1PE"
-worksheet_num = 0
-dfchannel = read_gsheet_to_df(sheet_id, worksheet_num, credens)
+worksheet_name = 'Competitor List'
+dfchannel = read_gsheet_to_df(sheet_id, worksheet_name, credens)
 #df.head()
 dfchannel_dict = dfchannel.to_dict(orient='records')[:3]
 #dfchannel.head(2)
 #Get Existing Data on Sheet, from Masters Tab
 sheet_id = "1OkErK2H6kCxByp0S3YX-M1LeDyEuOHfnGh84NBiT1PE"
-worksheet_num = 1
-dfexisting = read_gsheet_to_df(sheet_id, worksheet_num, credens)
+worksheet_name = 'Master'
+dfexisting = read_gsheet_to_df(sheet_id, worksheet_name, credens)
 #df.head()
 #df_dict = df.to_dict(orient='records')
 #dfexisting.head(2)
