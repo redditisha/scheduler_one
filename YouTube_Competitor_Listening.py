@@ -21,9 +21,12 @@ from googleapiclient.errors import HttpError
 api_key = os.getenv("YOUTUBE_API_KEY")
 
 google_sheets_credentials_json = os.getenv("GOOGLE_SHEETS_CREDENTIALS")
+if not google_sheets_credentials_json:
+    raise ValueError("Error: GOOGLE_SHEETS_CREDENTIALS not found. Make sure it is set in GitHub Secrets.")
 
-# Convert JSON string to dictionary
+# Convert JSON string back into a dictionary
 credens = json.loads(google_sheets_credentials_json)
+print("Google Sheets credentials loaded successfully.")
 
 def empty_row():
     try:
