@@ -54,10 +54,10 @@ def empty_row():
     except HttpError as error:
         print(f"An error occurred: {error}")
         return error
-def worksheet_update(Channel_Details,sheet_id,worksheet_num,Top_left):
+def worksheet_update(Channel_Details,sheet_id,worksheet_name,Top_left):
     gc = gspread.service_account_from_dict(credens)
     sheets = gc.open_by_key(str(sheet_id))
-    worksheet = sheets.get_worksheet(int(worksheet_num))
+    worksheet = sheets.get_worksheet(worksheet_name)
     Top_Left_Index=str(Top_left)
     #headers = list(Channel_Details[0].keys())
     Num_In_Details=len(Channel_Details[0])
@@ -218,10 +218,10 @@ def next_index2(index_text,Num_top):
     Total_Items=Num_top
     Bottom_Right_Index= re.match(r"([A-Za-z]+)(\d+)", Top_Left_Index).group(1).upper()+str(int(re.match(r"([A-Z]+)(\d+)", Top_Left_Index).group(2))+Total_Items)
     return Bottom_Right_Index
-def clear_worksheet(sheet_id, worksheet_num):
+def clear_worksheet(sheet_id, worksheet_name):
     gc = gspread.service_account_from_dict(credens)  # Authenticate
     sheets = gc.open_by_key(sheet_id)  # Open the spreadsheet
-    worksheet = sheets.get_worksheet(int(worksheet_num))  # Get the worksheet
+    worksheet = sheets.get_worksheet(worksheet_name)  # Get the worksheet
 
     worksheet.clear()
 def read_gsheet_to_df(sheet_id, worksheet_name, credens):
@@ -335,6 +335,6 @@ df_filtered = df_filtered.fillna("")
 
 all_stats_dict = df_filtered.to_dict('records')
 temp_dict = {key: key for key in all_stats_dict[0].keys()}
-clear_worksheet('1OkErK2H6kCxByp0S3YX-M1LeDyEuOHfnGh84NBiT1PE', 1)
-worksheet_update([temp_dict],'1OkErK2H6kCxByp0S3YX-M1LeDyEuOHfnGh84NBiT1PE',1,'A1')
-worksheet_update(all_stats_dict,'1OkErK2H6kCxByp0S3YX-M1LeDyEuOHfnGh84NBiT1PE',1,'A2')
+clear_worksheet('1OkErK2H6kCxByp0S3YX-M1LeDyEuOHfnGh84NBiT1PE', 'Master')
+worksheet_update([temp_dict],'1OkErK2H6kCxByp0S3YX-M1LeDyEuOHfnGh84NBiT1PE','Master','A1')
+worksheet_update(all_stats_dict,'1OkErK2H6kCxByp0S3YX-M1LeDyEuOHfnGh84NBiT1PE','Master','A2')
