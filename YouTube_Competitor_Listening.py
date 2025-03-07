@@ -57,7 +57,7 @@ def empty_row():
 def worksheet_update(Channel_Details,sheet_id,worksheet_name,Top_left):
     gc = gspread.service_account_from_dict(credens)
     sheets = gc.open_by_key(str(sheet_id))
-    worksheet = sheets.get_worksheet(worksheet_name)
+    worksheet = sheets.worksheet(worksheet_name)
     Top_Left_Index=str(Top_left)
     #headers = list(Channel_Details[0].keys())
     Num_In_Details=len(Channel_Details[0])
@@ -221,7 +221,7 @@ def next_index2(index_text,Num_top):
 def clear_worksheet(sheet_id, worksheet_name):
     gc = gspread.service_account_from_dict(credens)  # Authenticate
     sheets = gc.open_by_key(sheet_id)  # Open the spreadsheet
-    worksheet = sheets.get_worksheet(worksheet_name)  # Get the worksheet
+    worksheet = sheets.worksheet(worksheet_name)  # Get the worksheet by name
 
     worksheet.clear()
 def read_gsheet_to_df(sheet_id, worksheet_name, credens):
