@@ -2,7 +2,7 @@ name: Niche YouTube Competitor Listening
 
 on:
   schedule:
-    - cron: "0 */12 * * *"  # Runs every 15 minutes
+    - cron: "/15 * * * *"  # Runs every 15 minutes
 
 jobs:
   run_code:
