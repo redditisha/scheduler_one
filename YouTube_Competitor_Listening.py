@@ -320,7 +320,7 @@ while i < len(channel_stats):
 dfexisting = dfexisting.drop(columns=['AvgViews'])
 Finalstats= pd.concat([all_stats_x, dfexisting], ignore_index=True)
 Finalstats['publishedAt'] = pd.to_datetime(Finalstats['publishedAt'])
-cutoff_date = datetime.today() - timedelta(days=45)
+cutoff_date = datetime.today() - timedelta(days=15)
 df_filtered = Finalstats[Finalstats['publishedAt'] >= cutoff_date]
 df_filtered['publishedAt'] = df_filtered['publishedAt'].dt.strftime('%Y-%m-%d')
 df_filtered['publishedAt'] = df_filtered['publishedAt'].apply(str)
