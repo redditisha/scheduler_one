@@ -3,7 +3,7 @@ name: WW YouTube Competitor Listening
 on:
   workflow_dispatch:
   schedule:
-    - cron: "/15 * * * *"  # Runs every 15 minutes
+    - cron: "*/15 * * * *"  # Runs every 15 minutes
 
 jobs:
   run_code:
